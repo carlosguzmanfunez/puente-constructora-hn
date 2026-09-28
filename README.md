@@ -10,6 +10,9 @@ Landing page para construir casas llave en mano en Honduras para hondureños en 
 
 - `SUPABASE_URL` URL del proyecto de Supabase.
 - `SUPABASE_KEY` clave pública (publishable). Solo permite insertar cotizaciones; leerlas requiere entrar al panel de Supabase.
+- `RESEND_API_KEY` (opcional) clave de resend.com para enviar correos.
+- `NOTIFY_EMAIL` (opcional) correo que recibe el aviso de cada cotización nueva.
+- `EMAIL_FROM` (opcional, requiere dominio verificado en Resend) remitente, p. ej. `Puente Constructora <cotizaciones@tudominio.com>`. Activa el correo de confirmación al cliente.
 
 ## Ver las cotizaciones
 
