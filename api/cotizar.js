@@ -31,7 +31,44 @@ module.exports = async function handler(req, res) {
     console.error('supabase', r.status, await r.text());
     return res.status(502).json({ error: 'No se pudo guardar' });
   }
+  await notify({ nombre, correo, mensaje, pagina, calculo }).catch((e) => console.error('correo', e));
   return res.status(200).json({ ok: true });
 };
+
+// Correos con Resend. Sin RESEND_API_KEY no se envía nada (la cotización ya quedó guardada).
+// NOTIFY_EMAIL: a quién avisar de cada cotización nueva.
+// EMAIL_FROM: remitente con dominio verificado en Resend; mientras no exista se usa el remitente
+// de prueba de Resend, que solo puede escribir al correo de la cuenta, y no se envía confirmación al cliente.
+async function notify(c) {
+  const key = process.env.RESEND_API_KEY;
+  if (!key) return;
+  const from = process.env.EMAIL_FROM || 'Puente Constructora <onboarding@resend.dev>';
+  const send = (body) => fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: { Authorization: 'Bearer ' + key, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ from, ...body }),
+  }).then(async (r) => { if (!r.ok) throw new Error(r.status + ' ' + (await r.text())); });
+
+  const calc = c.calculo ? `Cálculo: ${c.calculo.ruta === 'cuota' ? 'cuota fija' : 'hipoteca'}, $${c.calculo.monto}/mes, ${c.calculo.resultado || ''}` : 'Sin cálculo';
+  const jobs = [];
+  if (process.env.NOTIFY_EMAIL) {
+    jobs.push(send({
+      to: process.env.NOTIFY_EMAIL,
+      reply_to: c.correo,
+      subject: `Nueva cotización: ${c.nombre}`,
+      text: `Nombre: ${c.nombre}\nCorreo: ${c.correo}\nPágina: ${c.pagina}\n${calc}\n\nMensaje:\n${c.mensaje}`,
+    }));
+  }
+  if (process.env.EMAIL_FROM) {
+    const first = c.nombre.split(/\s+/)[0];
+    jobs.push(send({
+      to: c.correo,
+      reply_to: process.env.NOTIFY_EMAIL || undefined,
+      subject: 'Recibimos tu solicitud de cotización',
+      text: `Hola, ${first}:\n\nGracias por escribir a Puente Constructora Honduras. Recibimos tu solicitud y te responderemos en menos de 24 horas.\n\n${c.pagina === 'calculadora' && c.calculo ? calc + '\n\n' : ''}Si prefieres, escríbenos por WhatsApp: https://wa.me/50431580149\n\nPuente Constructora Honduras`,
+    }));
+  }
+  await Promise.all(jobs);
+}
 
 function safeJson(s) { try { return JSON.parse(s); } catch { return {}; } }
