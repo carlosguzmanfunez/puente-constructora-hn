@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Puente Constructora Honduras · Construye tu casa en Honduras desde EE.UU.</title>
+<meta name="description" content="Construimos tu casa en Honduras mientras vives en Estados Unidos. Contrato legal, fideicomiso bancario, avance de obra en video y financiamiento a tu medida.">
+<link rel="canonical" href="https://puente-constructora-hn.vercel.app/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_HN">
+<meta property="og:site_name" content="Puente Constructora Honduras">
+<meta property="og:title" content="Puente Constructora Honduras · Construye tu casa en Honduras desde EE.UU.">
+<meta property="og:description" content="Construimos tu casa en Honduras mientras vives en Estados Unidos. Contrato legal, fideicomiso bancario, avance de obra en video y financiamiento a tu medida.">
+<meta property="og:url" content="https://puente-constructora-hn.vercel.app/">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#F3EFE9">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+body{margin:0}
+
+:root{
+  --ground:#F3EFE9; --paper:#FBF9F5; --ink:#1E1B18; --muted:#6D655C; --line:#DCD3C8;
+  --terra:#B0602D; --terra-deep:#8C4A21; --terra-soft:#F1E3D7; --on-terra:#FFFFFF;
+  --night:#171411; --night-2:#211D19; --on-night:#EFE8DE; --on-night-muted:#A99F93; --night-line:rgba(239,232,222,.16);
+  --ok:#3F7A57;
+  --serif:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --sans:"Jost","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#13110F; --paper:#1B1815; --ink:#EDE6DC; --muted:#A1978B; --line:#332D27;
+    --terra:#D98A58; --terra-deep:#E9A77D; --terra-soft:#2A1D14; --on-terra:#150F0B; --ok:#7FBF98;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#13110F; --paper:#1B1815; --ink:#EDE6DC; --muted:#A1978B; --line:#332D27;
+  --terra:#D98A58; --terra-deep:#E9A77D; --terra-soft:#2A1D14; --on-terra:#150F0B; --ok:#7FBF98;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16.5px;line-height:1.65;margin:0}
+#site{container:site/inline-size;margin-inline:auto}
+.pad{padding-inline:40px;padding-block:0}
+.wrap{max-width:1240px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:1.5px solid var(--terra);outline-offset:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(38px,4.8cqi,64px);line-height:1.02}
+h3{font-size:27px;line-height:1.1}
+h2 em,h1 em{font-style:italic;color:var(--terra)}
+p{margin:0}
+.eyebrow{font-family:var(--sans);font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--terra)}
+.lead{font-size:18px;color:var(--muted);max-width:52ch;font-weight:300}
+section{padding-block:128px 0}
+.bleed{margin-inline:-40px}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:18px 28px;border:1px solid transparent;border-radius:0;cursor:pointer;transition:background .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn-terra{background:var(--terra);color:var(--on-terra)}
+.btn-terra:hover{background:var(--terra-deep)}
+.btn-line{border-color:currentColor;background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--ground)}
+.btn-light{border-color:rgba(255,255,255,.7);color:#fff;background:transparent}
+.btn-light:hover{background:#fff;color:#171411}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{background:#1EBE5A}
+.btn-wa svg{flex:none}
+.btn .ln{width:26px;height:1px;background:currentColor;transition:width .25s}
+.btn:hover .ln{width:38px}
+.tlink{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--terra)}
+.tlink:hover{color:var(--terra)}
+
+/* HEADER */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;margin-inline:-40px;padding:0 40px;height:84px;display:flex;align-items:center;background:var(--ground);border-bottom:1px solid var(--line);transition:background .3s}
+.top .wrap{width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo .mono{width:42px;height:42px;border:1px solid var(--terra);display:grid;place-items:center;font-family:var(--serif);font-size:20px;font-weight:600;color:var(--terra);letter-spacing:.02em}
+.logo .wm{display:grid;line-height:1.15}
+.logo b{font-family:var(--sans);font-weight:500;font-size:13.5px;letter-spacing:.26em;text-transform:uppercase}
+.logo small{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+.menu{display:flex;gap:34px}
+.menu a{font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
+.menu a:hover{color:var(--ink)}
+.top .btn{padding:13px 20px}
+
+/* HERO */
+.hero{position:relative;min-height:clamp(520px,72vh,720px);color:#fff;display:grid;align-items:end;overflow:hidden;background:#171411}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.slide.on{opacity:1}
+.slide svg{width:100%;height:100%;display:block}
+.slide.on svg{animation:kb 14s ease-out both}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,15,12,.25) 0%,rgba(18,15,12,0) 22%,rgba(18,15,12,.25) 55%,rgba(18,15,12,.82) 100%)}
+.hero-in{position:relative;z-index:2;padding:56px 40px 56px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;max-width:1320px;width:100%;margin:0 auto}
+.hero-copy{display:grid;gap:26px;max-width:760px}
+.hero .eyebrow{color:#E9B48C}
+.hero h1{font-size:clamp(52px,7.6cqi,112px);line-height:.92;font-weight:500;color:#fff}
+.hero h1 em{color:#F0C39E}
+.hero p{font-size:18.5px;font-weight:300;color:rgba(255,255,255,.82);max-width:48ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero-meta{display:grid;gap:14px;justify-items:end;text-align:right;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.hero-meta .count{font-family:var(--serif);font-size:30px;letter-spacing:0;color:#fff}
+.hero-meta .count span{color:rgba(255,255,255,.5)}
+.dots{display:flex;gap:10px}
+.dots button{width:34px;height:2px;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer}
+.dots button[aria-current=true]{background:#fff}
+.route{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.route i{display:block;width:48px;height:1px;background:repeating-linear-gradient(90deg,#E9B48C 0 4px,transparent 4px 8px)}
+
+/* INTRO */
+.intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.intro .big{font-family:var(--serif);font-size:clamp(30px,3.4cqi,46px);line-height:1.18;font-weight:400;color:var(--ink)}
+.intro .big em{font-style:italic;color:var(--terra)}
+.intro-side{display:grid;gap:28px;padding-top:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:88px;border-top:1px solid var(--line)}
+.stats div{padding:28px 24px 0 0;display:grid;gap:6px}
+.stats div+div{padding-left:24px;border-left:1px solid var(--line)}
+.stats b{font-family:var(--serif);font-weight:500;font-size:52px;line-height:1;color:var(--terra)}
+.stats span{font-size:14px;color:var(--muted);line-height:1.5}
+
+/* PROBLEM */
+.problem{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.problem .head{display:grid;gap:22px;align-content:start}
+.pains{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.pains li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:28px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:26px;line-height:1.25}
+.pains li span{font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:var(--terra);padding-top:9px}
+
+/* SOLUTION */
+.sol-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px}
+.sol-head .lead{max-width:none}
+.values{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.value{padding:40px 32px 8px 0;display:grid;gap:16px;align-content:start}
+.value+.value{padding-left:32px;border-left:1px solid var(--line)}
+.value svg{color:var(--terra)}
+.value p{color:var(--muted);font-size:15.5px;font-weight:300}
+.value ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.value li::before{content:"— ";color:var(--terra)}
+
+/* PROCESS (dark) */
+.dark{background:var(--night);color:var(--on-night);padding:120px 40px;margin-top:128px}
+.dark .eyebrow{color:#E0A57C}
+.dark h2{color:#fff}
+.dark .lead{color:var(--on-night-muted)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);margin-top:64px;border-top:1px solid var(--night-line)}
+.step{padding:32px 24px 0 0;display:grid;gap:14px;align-content:start}
+.step+.step{padding-left:24px;border-left:1px solid var(--night-line)}
+.step .n{font-family:var(--serif);font-size:56px;line-height:1;color:#E0A57C;font-weight:400}
+.step h3{font-size:24px;color:#fff}
+.step p{font-size:15px;color:var(--on-night-muted);font-weight:300}
+
+/* CALCULATOR (visual only) */
+.calc-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:56px}
+.calc{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:var(--paper)}
+.calc-in{padding:48px;display:grid;gap:32px;align-content:start}
+.calc-out{padding:48px;display:grid;gap:26px;align-content:start;background:var(--terra-soft);border-left:1px solid var(--line)}
+.field{display:grid;gap:12px}
+.field>label,.field>.flabel,.quick .flabel{font-size:11.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.amount{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:clamp(60px,6.4cqi,88px);font-weight:500;line-height:.9;font-variant-numeric:lining-nums tabular-nums}
+.amount small{font-family:var(--sans);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--terra);height:30px}
+.ticks{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.quick{display:grid;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;font-size:14px;padding:8px 16px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;border-radius:0;transition:border-color .2s,background .2s}
+.chips button:hover{border-color:var(--terra)}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{text-align:center;padding:14px 10px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;color:var(--ink);line-height:1.4}
+.seg label+input+label{border-left:1px solid var(--ink)}
+.seg input:checked+label{background:var(--ink);color:var(--ground)}
+.seg input:focus-visible+label{outline:1.5px solid var(--terra);outline-offset:3px}
+.out-label{font-size:11.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--terra-deep)}
+.calc-out .big{font-family:var(--serif);font-size:clamp(60px,6.6cqi,96px);font-weight:500;line-height:.9;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
+.bar-out{display:grid;gap:10px}
+.bar-out .track{height:3px;background:color-mix(in srgb,var(--terra) 22%,transparent)}
+.bar-out .track i{display:block;height:100%;width:50%;background:var(--terra);transition:width .4s ease}
+.bar-out .scale{display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:.12em;color:var(--muted)}
+.out-lines{display:grid;border-top:1px solid color-mix(in srgb,var(--terra) 30%,transparent)}
+.out-lines div{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--terra) 30%,transparent);font-size:15px}
+.out-lines span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500}
+.model-fit{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--paper);border:1px solid var(--line)}
+.model-fit svg{color:var(--terra)}
+.model-fit b{font-family:var(--serif);font-size:24px;font-weight:600}
+.model-fit p{font-size:14px;color:var(--muted)}
+.fine{font-size:13px;color:var(--muted);font-weight:300}
+
+/* MODELS (portfolio) */
+.models-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+.models{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:28px}
+.model{display:grid;gap:18px;align-content:start;text-decoration:none}
+.model .ph{aspect-ratio:4/5;max-width:100%;overflow:hidden;position:relative}
+.model:first-child .ph{aspect-ratio:4/4.6}
+.model .ph svg{width:100%;height:100%;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.model:hover .ph svg{transform:scale(1.045)}
+.model .tag{position:absolute;top:16px;left:16px;background:var(--paper);color:var(--ink);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;padding:7px 12px}
+.model .meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.model h3{font-size:32px}
+.model .meta span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.model p{color:var(--muted);font-size:15px;font-weight:300}
+.model .price{font-family:var(--serif);font-size:28px;font-weight:500}
+.model .price small{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* FINANCE */
+.fin{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.fin article{padding:40px 36px 0 0;display:grid;gap:14px;align-content:start}
+.fin article+article{padding-left:36px;border-left:1px solid var(--line)}
+.fin p{color:var(--muted);font-weight:300}
+.fin ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px;font-size:15px}
+.fin li{padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;gap:10px}
+.fin li::before{content:"—";color:var(--terra)}
+
+/* SECURITY */
+.secure{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--paper)}
+.secure-l{padding:64px 56px;display:grid;gap:24px;align-content:start;border-right:1px solid var(--line)}
+.secure-l blockquote{margin:12px 0 0;padding:24px 0 0;border-top:1px solid var(--line);display:grid;gap:10px}
+.secure-l blockquote b{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);font-weight:500}
+.secure-l blockquote p{font-family:var(--serif);font-size:24px;line-height:1.3;font-style:italic}
+.secure-r{padding:64px 56px;display:grid;gap:0;align-content:center}
+.flow-item{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.flow-item:first-child{padding-top:0}
+.flow-item:last-child{border-bottom:0;padding-bottom:0}
+.flow-item .n{font-family:var(--serif);font-size:30px;line-height:1;color:var(--terra)}
+.flow-item b{font-family:var(--serif);font-size:23px;font-weight:600;display:block;line-height:1.2}
+.flow-item span{font-size:15px;color:var(--muted);font-weight:300}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.faq{border-top:1px solid var(--ink)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:26px 0;display:flex;justify-content:space-between;gap:20px;font-family:var(--serif);font-size:24px;font-weight:500;line-height:1.25}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:14px;height:14px;margin-top:8px;background:linear-gradient(var(--terra),var(--terra)) center/14px 1.5px no-repeat,linear-gradient(var(--terra),var(--terra)) center/1.5px 14px no-repeat;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
+
+/* CONTACT */
+.contact{background:var(--night);color:var(--on-night);padding:120px 40px 0;margin-top:128px}
+.contact-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding-bottom:100px}
+.contact h2{color:#fff}
+.contact .eyebrow{color:#E0A57C}
+.contact .lead{color:var(--on-night-muted)}
+.hours{display:grid;gap:8px;margin-top:8px;padding-top:24px;border-top:1px solid var(--night-line);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-night-muted)}
+.qcard{background:var(--paper);color:var(--ink);padding:44px}
+.qcard h3{margin-bottom:22px}
+.qform{display:grid;gap:18px}
+.qfield{display:grid;gap:8px}
+.qfield label{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.qfield input,.qfield textarea{font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 0;width:100%;transition:border-color .2s}
+.qfield textarea{resize:vertical;min-height:92px;line-height:1.55;border:1px solid var(--line);padding:12px 14px}
+.qfield input:focus,.qfield textarea:focus{outline:none;border-color:var(--terra)}
+.qfield input[aria-invalid=true]{border-color:#B3261E}
+.qerr{font-size:13px;color:#B3261E}
+.qform .btn{width:100%;background:var(--terra);color:var(--on-terra)}
+.qform .btn:hover{background:var(--terra-deep)}
+.qform .arrow{display:none}
+.qok{display:grid;gap:10px;padding:28px;background:var(--terra-soft)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.qok b{font-family:var(--serif);font-size:30px;font-weight:500}
+.qok p{color:var(--muted)}
+.foot{border-top:1px solid var(--night-line);padding-block:40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;font-size:14px;color:var(--on-night-muted)}
+.foot .logo b{color:#fff}
+.foot .logo small{color:var(--on-night-muted)}
+.foot .logo .mono{border-color:#E0A57C;color:#E0A57C}
+.foot h4{margin:0 0 12px;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#E0A57C}
+.foot a{text-decoration:none}
+.foot a:hover{color:#fff}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.mock-note{font-size:12.5px;padding:16px 0 40px;color:var(--on-night-muted);border-top:1px solid var(--night-line)}
+
+/* MOBILE BAR */
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:1px solid var(--line);gap:10px}
+.mbar .btn{flex:1;padding:15px 10px;font-size:11.5px}
+
+@container site (max-width:1060px){
+  .menu{display:none}
+  .intro,.problem,.sol-head,.calc-head,.faq-grid,.contact-in{grid-template-columns:1fr;gap:40px}
+  .values{grid-template-columns:1fr 1fr}
+  .value:nth-child(3){padding-left:0;border-left:0}
+  .value:nth-child(n+3){border-top:1px solid var(--line)}
+  .steps{grid-template-columns:1fr;border-top:0}
+  .step,.step+.step{padding:24px 0;border-left:0;border-top:1px solid var(--night-line);grid-template-columns:80px 1fr;column-gap:20px}
+  .step .n{grid-row:span 2;font-size:44px}
+  .calc{grid-template-columns:1fr}
+  .calc-out{border-left:0;border-top:1px solid var(--line)}
+  .models{grid-template-columns:1fr 1fr}
+  .model:first-child{grid-column:span 2}
+  .model:first-child .ph{aspect-ratio:16/10}
+  .secure{grid-template-columns:1fr}
+  .secure-l{border-right:0;border-bottom:1px solid var(--line)}
+  .hero-in{grid-template-columns:1fr}
+  .hero-meta{justify-items:start;text-align:left}
+}
+@container site (max-width:640px){
+  .pad{padding-inline:20px;padding-bottom:84px}
+  .top{margin-inline:-20px;padding-inline:20px;height:70px}
+  .top .btn{display:none}
+  .logo .mono{width:36px;height:36px;font-size:17px}
+  .logo b{font-size:12px;letter-spacing:.2em}
+  .bleed{margin-inline:-20px}
+  .hero{min-height:560px}
+  .hero-in{padding:0 20px 40px}
+  .hero-meta{display:none}
+  .route{letter-spacing:.12em;font-size:11px;gap:8px}
+  .route i{width:24px}
+  section{padding-block:88px 0}
+  .stats{grid-template-columns:1fr 1fr;margin-top:56px}
+  .stats div:nth-child(3){padding-left:0;border-left:0}
+  .stats div:nth-child(n+3){border-top:1px solid var(--line);margin-top:24px}
+  .stats b{font-size:40px}
+  .pains li{font-size:22px;grid-template-columns:40px 1fr}
+  .values{grid-template-columns:1fr}
+  .value,.value+.value{padding:28px 0;border-left:0;border-top:1px solid var(--line)}
+  .value:first-child{border-top:0}
+  .dark,.contact{padding-inline:20px;margin-top:88px}
+  .dark{padding-block:80px}
+  .contact{padding-top:80px}
+  .calc-in,.calc-out{padding:28px 22px}
+  .models{grid-template-columns:1fr}
+  .model:first-child{grid-column:auto}
+  .model:first-child .ph,.model .ph{aspect-ratio:4/3.4}
+  .fin{grid-template-columns:1fr}
+  .fin article,.fin article+article{padding:32px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .secure-l,.secure-r{padding:36px 24px}
+  .qcard{padding:28px 22px}
+  .foot{grid-template-columns:1fr}
+  .mbar{display:flex}
+  .btn{padding:16px 22px}
+}
+
+
+</style>
+</head>
+<body>
+<div id="site"><div class="pad">
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Puente Constructora Honduras, inicio"><span class="mono">PC</span><span class="wm"><b>Puente Constructora</b><small>Honduras</small></span></a>
+    <nav class="menu" aria-label="Principal">
+      <a href="#problema">Nosotros</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#calculadora">Calculadora</a>
+      <a href="#modelos">Modelos</a>
+      <a href="#financiamiento">Financiamiento</a>
+    </nav>
+    <a class="btn btn-line" href="#cotizar">Cotizar</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero bleed" id="inicio">
+  <div class="slides" aria-hidden="true">
+    <div class="slide on" data-cap="Casa Pino · San Pedro Sula">
+      <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
+        <defs>
+          <linearGradient id="s1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#231A16"/><stop offset=".45" stop-color="#6B3A22"/><stop offset=".72" stop-color="#C77B45"/><stop offset=".86" stop-color="#EDB47E"/></linearGradient>
+          <linearGradient id="w1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE0A8"/><stop offset="1" stop-color="#F0A95C"/></linearGradient>
+          <linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1D1713"/><stop offset="1" stop-color="#0E0B09"/></linearGradient>
+        </defs>
+        <rect width="1600" height="1000" fill="url(#s1)"/>
+        <circle cx="1180" cy="690" r="90" fill="#F6CD9A" opacity=".55"/>
+        <path d="M0 640 L140 560 L260 600 L420 500 L560 575 L720 470 L880 560 L1030 505 L1200 585 L1360 520 L1600 600 V1000 H0Z" fill="#4A2C1F" opacity=".75"/>
+        <path d="M0 700 L180 640 L360 675 L520 620 L700 668 L900 628 L1100 676 L1300 640 L1600 690 V1000 H0Z" fill="#2B1C16"/>
+        <rect y="760" width="1600" height="240" fill="url(#g1)"/>
+        <!-- house -->
+        <g transform="translate(760 500) scale(.92)">
+          <rect x="-40" y="84" width="820" height="14" fill="#E9E1D6"/>
+          <rect x="0" y="98" width="560" height="192" fill="#D9CFC2"/>
+          <rect x="560" y="140" width="220" height="150" fill="#3A2B22"/>
+          <g fill="#6E4A33">
+            <rect x="572" y="150" width="8" height="140"/><rect x="592" y="150" width="8" height="140"/><rect x="612" y="150" width="8" height="140"/><rect x="632" y="150" width="8" height="140"/>
+          </g>
+          <rect x="40" y="130" width="230" height="160" fill="url(#w1)"/>
+          <rect x="300" y="130" width="120" height="160" fill="url(#w1)" opacity=".85"/>
+          <line x1="155" y1="130" x2="155" y2="290" stroke="#3A2B22" stroke-width="4"/>
+          <rect x="450" y="160" width="80" height="130" fill="#2E231C"/>
+          <rect x="660" y="190" width="100" height="70" fill="url(#w1)" opacity=".7"/>
+          <rect x="-60" y="290" width="900" height="10" fill="#E9E1D6" opacity=".6"/>
+          <path d="M40 300 L270 300 L300 420 L0 420Z" fill="#F0A95C" opacity=".12"/>
+        </g>
+        <!-- trees -->
+        <g fill="#120D0A">
+          <path d="M250 780 C 240 700 262 640 250 560 C 262 640 280 700 262 780Z"/>
+          <path d="M250 560 c-60 10 -90 40 -110 70 c40 -30 80 -40 110 -45z M250 560 c60 8 90 36 112 66 c-42 -28 -80 -36 -112 -40z M250 560 c-30 -30 -80 -40 -120 -34 c44 6 86 22 120 44z M250 560 c30 -32 82 -44 124 -38 c-46 8 -88 24 -124 48z"/>
+          <path d="M1350 780 l38 -170 l38 170z"/><path d="M1420 780 l28 -120 l28 120z"/>
+        </g>
+      </svg>
+    </div>
+    <div class="slide" data-cap="Obra en curso · Fase 4 de 6">
+      <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
+        <defs><linearGradient id="s2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8FA3A8"/><stop offset=".6" stop-color="#D8CFC0"/><stop offset="1" stop-color="#EBDDC8"/></linearGradient></defs>
+        <rect width="1600" height="1000" fill="url(#s2)"/>
+        <path d="M0 620 L200 540 L380 590 L560 500 L760 570 L960 490 L1160 560 L1380 510 L1600 570 V1000 H0Z" fill="#7F8B80" opacity=".55"/>
+        <rect y="760" width="1600" height="240" fill="#B79C7E"/>
+        <rect y="760" width="1600" height="6" fill="#9C8166"/>
+        <g transform="translate(360 380)">
+          <g fill="#8E8378">
+            <rect x="0" y="120" width="26" height="260"/><rect x="260" y="120" width="26" height="260"/><rect x="520" y="120" width="26" height="260"/><rect x="780" y="120" width="26" height="260"/>
+          </g>
+          <rect x="-20" y="100" width="846" height="28" fill="#A2968A"/>
+          <g fill="#C9B9A5" stroke="#A8998A" stroke-width="2">
+            <rect x="26" y="250" width="234" height="130"/><rect x="286" y="250" width="234" height="130"/><rect x="546" y="290" width="234" height="90"/>
+          </g>
+          <g stroke="#A8998A" stroke-width="1.5">
+            <line x1="26" y1="283" x2="260" y2="283"/><line x1="26" y1="316" x2="260" y2="316"/><line x1="26" y1="349" x2="260" y2="349"/>
+            <line x1="286" y1="283" x2="520" y2="283"/><line x1="286" y1="316" x2="520" y2="316"/><line x1="286" y1="349" x2="520" y2="349"/>
+            <line x1="546" y1="316" x2="780" y2="316"/><line x1="546" y1="349" x2="780" y2="349"/>
+          </g>
+          <g stroke="#6E5B48" stroke-width="5" fill="none">
+            <line x1="840" y1="380" x2="840" y2="60"/><line x1="900" y1="380" x2="900" y2="60"/>
+            <line x1="840" y1="140" x2="900" y2="140"/><line x1="840" y1="240" x2="900" y2="240"/><line x1="840" y1="380" x2="900" y2="240"/><line x1="840" y1="240" x2="900" y2="140"/>
+          </g>
+          <g fill="#B0602D"><rect x="-200" y="340" width="60" height="40"/><rect x="-140" y="340" width="60" height="40"/><rect x="-170" y="300" width="60" height="40"/></g>
+          <rect x="-30" y="30" width="16" height="16" rx="3" fill="#1E1B18"/><line x1="-22" y1="46" x2="-22" y2="380" stroke="#1E1B18" stroke-width="4"/>
+        </g>
+      </svg>
+    </div>
+    <div class="slide" data-cap="Sala · Casa Caoba">
+      <svg viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMax slice">
+        <defs><linearGradient id="s3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A9BDB8"/><stop offset="1" stop-color="#E7D6BE"/></linearGradient></defs>
+        <rect width="1600" height="1000" fill="#E4DBCF"/>
+        <rect x="360" y="110" width="880" height="560" fill="url(#s3)"/>
+        <path d="M360 520 L520 440 L700 490 L880 410 L1060 470 L1240 430 V670 H360Z" fill="#6F8A76"/>
+        <path d="M360 580 L600 540 L860 575 L1100 545 L1240 560 V670 H360Z" fill="#4E6B58"/>
+        <g stroke="#2B2420" stroke-width="12" fill="none"><rect x="360" y="110" width="880" height="560"/><line x1="800" y1="110" x2="800" y2="670"/></g>
+        <rect x="0" y="760" width="1600" height="240" fill="#9A6A45"/>
+        <g stroke="#86593A" stroke-width="2"><line x1="0" y1="820" x2="1600" y2="820"/><line x1="0" y1="890" x2="1600" y2="890"/><line x1="0" y1="960" x2="1600" y2="960"/></g>
+        <rect x="0" y="752" width="1600" height="10" fill="#CFC4B6"/>
+        <g transform="translate(420 600)">
+          <rect x="0" y="80" width="560" height="110" rx="10" fill="#E9E1D5"/>
+          <rect x="-20" y="40" width="600" height="70" rx="14" fill="#F3EDE4"/>
+          <rect x="30" y="20" width="150" height="80" rx="12" fill="#B0602D"/>
+          <rect x="400" y="20" width="140" height="80" rx="12" fill="#D8C7B0"/>
+          <rect x="20" y="190" width="10" height="20" fill="#2B2420"/><rect x="530" y="190" width="10" height="20" fill="#2B2420"/>
+        </g>
+        <line x1="1300" y1="0" x2="1300" y2="330" stroke="#2B2420" stroke-width="3"/>
+        <path d="M1250 330 h100 l-20 60 h-60z" fill="#2B2420"/>
+        <ellipse cx="1300" cy="400" rx="46" ry="10" fill="#F5D49E" opacity=".6"/>
+        <g transform="translate(1180 560)"><rect x="40" y="120" width="70" height="80" fill="#B0602D"/><path d="M75 120 C 40 60 20 40 30 0 C 60 40 70 70 75 120 C 90 60 110 30 140 20 C 120 60 100 90 75 120Z" fill="#4E6B58"/></g>
+      </svg>
+    </div>
+  </div>
+  <div class="hero-in">
+    <div class="hero-copy">
+      <span class="route">EE.UU. <i></i> Honduras</span>
+      <h1>Tu esfuerzo allá, <em>tu casa aquí.</em></h1>
+      <p>Construimos tu casa en la ciudad de Honduras que elijas. Tú la ves crecer en vivo desde tu celular y tu dinero lo resguarda un banco, no una persona.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-terra" href="/calculadora" target="_blank" rel="noopener">Calcula tu casa <span class="ln"></span></a>
+        <a class="btn btn-wa" href="https://wa.me/50431580149?text=Hola%2C%20Puente%20Constructora.%20Vivo%20fuera%20de%20Honduras%20y%20quiero%20construir%20mi%20casa%20all%C3%A1.%20%C2%BFMe%20pueden%20ayudar%20con%20una%20cotizaci%C3%B3n%3F" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2.2A9.7 9.7 0 0 0 3.6 16.8L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8.9c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3Z"/></svg>WhatsApp</a>
+        <a class="btn btn-light" href="#cotizar">Cotizar</a>
+      </div>
+    </div>
+    <div class="hero-meta">
+      <div class="count"><b id="slideN">01</b> <span>/ 03</span></div>
+      <span id="slideCap">Casa Pino · San Pedro Sula</span>
+      <div class="dots" role="group" aria-label="Imágenes de portada">
+        <button type="button" aria-label="Imagen 1" aria-current="true"></button><button type="button" aria-label="Imagen 2"></button><button type="button" aria-label="Imagen 3"></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- INTRO -->
+<section>
+  <div class="intro">
+    <div style="display:grid;gap:20px">
+      <span class="eyebrow">Construcción llave en mano</span>
+      <h2>Una constructora hondureña para quien vive <em>lejos de casa.</em></h2>
+    </div>
+    <div class="intro-side">
+      <p class="big">Construimos con la seriedad de un banco y el cuidado de un <em>artesano</em>: contrato cerrado, dinero en fideicomiso y tu obra en vivo.</p>
+      <div style="display:flex;gap:32px;flex-wrap:wrap"><a class="tlink" href="#proceso">Cómo trabajamos</a><a class="tlink" href="#modelos">Ver modelos</a></div>
+    </div>
+  </div>
+  <div class="stats">
+    <div><b>100%</b><span>de tus pagos van a un fideicomiso bancario</span></div>
+    <div><b>24/7</b><span>cámara en vivo de tu obra</span></div>
+    <div><b>6</b><span>fases, cada una certificada por un ingeniero independiente</span></div>
+    <div><b>0</b><span>depósitos a cuentas personales</span></div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section id="problema">
+  <div class="problem">
+    <div class="head">
+      <span class="eyebrow">El problema</span>
+      <h2>Sabemos lo que cuesta cada dólar ganado <em>lejos de casa.</em></h2>
+      <p class="lead">Mandas dinero a familiares con la ilusión de levantar las paredes de tu hogar, pero te enfrentas a:</p>
+    </div>
+    <ul class="pains">
+      <li><span>I</span>Materiales de baja calidad o compras sin factura.</li>
+      <li><span>II</span>Presupuestos que "se inflan" sin justificación.</li>
+      <li><span>III</span>Falta de avances reales y cero garantías legales.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section id="solucion">
+  <div class="sol-head">
+    <div style="display:grid;gap:20px"><span class="eyebrow">Cómo lo resolvemos</span><h2>Tú controlas cada etapa <em>desde el extranjero.</em></h2></div>
+    <p class="lead">Puente Constructora te respalda con seriedad profesional, contratos legales y un sistema donde tú controlas cada etapa desde el extranjero.</p>
+  </div>
+  <div class="values">
+    <article class="value">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="4" y="9" width="26" height="17"/><path d="M4 15h26M9 21h6"/></svg>
+      <h3>Financiamiento y crédito directo</h3>
+      <p>Opciones a tu medida para que no tengas que esperar a juntar todo el dinero de golpe.</p>
+    </article>
+    <article class="value">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="10" y="3" width="14" height="28" rx="2"/><path d="M15 27h4"/><circle cx="17" cy="14" r="4"/></svg>
+      <h3>Transparencia total</h3>
+      <p>Fotos, videos y reportes periódicos del avance de obra directamente en tu teléfono.</p>
+    </article>
+    <article class="value">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M17 3 29 8v8c0 7-5 12-12 15C10 28 5 23 5 16V8z"/><path d="m12 17 3.5 3.5L22 13"/></svg>
+      <h3>Calidad garantizada</h3>
+      <p>Materiales certificados y mano de obra calificada.</p>
+      <ul><li>Ingenieros civiles colegiados (CICH)</li><li>Arquitectos colegiados (CAH)</li></ul>
+    </article>
+    <article class="value">
+      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 3h13l6 6v22H8z"/><path d="M21 3v6h6M12 16h11M12 21h11M12 26h7"/></svg>
+      <h3>Contratos legales</h3>
+      <p>Precio cerrado, cronograma y penalidad por atraso. En español e inglés, firmado desde tu celular.</p>
+    </article>
+  </div>
+</section>
+
+</div>
+
+<!-- PROCESS -->
+<div class="dark bleed" id="proceso">
+  <div class="wrap">
+    <div class="sol-head" style="margin:0">
+      <div style="display:grid;gap:20px"><span class="eyebrow">Cómo funciona</span><h2>De la primera llamada a las llaves, <em style="color:#E0A57C">sin viajar.</em></h2></div>
+      <p class="lead">Cinco pasos, un solo contrato y un equipo que te rinde cuentas en tu horario.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><h3>Videollamada</h3><p>Nos cuentas qué casa quieres, dónde y cuánto puedes aportar al mes.</p></div>
+      <div class="step"><span class="n">02</span><h3>Terreno verificado</h3><p>Revisamos el tuyo o te ayudamos a comprar uno con papeles limpios.</p></div>
+      <div class="step"><span class="n">03</span><h3>Diseño y precio cerrado</h3><p>Planos, presupuesto fijo y contrato que firmas desde tu celular.</p></div>
+      <div class="step"><span class="n">04</span><h3>Obra en vivo</h3><p>Cámara, reportes semanales y pagos liberados solo por avance real.</p></div>
+      <div class="step"><span class="n">05</span><h3>Entrega</h3><p>Recorrido final por video y llaves a tu familiar de confianza.</p></div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- CALCULATOR -->
+<section id="calculadora">
+  <div class="calc-head">
+    <div style="display:grid;gap:20px"><span class="eyebrow">Calculadora de remesa</span><h2>Con lo que envías al mes, <em>¿qué casa puedes tener?</em></h2></div>
+    <div style="display:grid;gap:22px;justify-items:start"><p class="lead">Mueve la barra y compara la hipoteca con la construcción programada.</p><a class="tlink" href="/calculadora" target="_blank" rel="noopener">Abrir en página aparte</a></div>
+  </div>
+<div class="calc">
+    <div class="calc-in">
+      <div class="field">
+        <label for="monto">Lo que puedo aportar cada mes</label>
+        <div class="amount" aria-live="polite"><span id="montoTxt">$500</span><small>USD / mes</small></div>
+        <input type="range" id="monto" min="200" max="1500" step="50" value="500">
+        <div class="ticks"><span>$200</span><span>$1,500</span></div>
+      </div>
+      <div class="quick">
+        <span class="flabel">Montos comunes</span>
+        <div class="chips"><button type="button" data-monto="300">$300</button><button type="button" data-monto="500">$500</button><button type="button" data-monto="800">$800</button><button type="button" data-monto="1200">$1,200</button></div>
+      </div>
+      <div class="field">
+        <span class="flabel">Cómo quiero pagar</span>
+        <div class="seg" role="radiogroup" aria-label="Forma de pago">
+          <input type="radio" name="ruta" id="rHipoteca" value="hipoteca" checked><label for="rHipoteca">Hipoteca bancaria</label>
+          <input type="radio" name="ruta" id="rCuota" value="cuota"><label for="rCuota">Construcción programada</label>
+        </div>
+      </div>
+      <p class="fine" id="rutaNota"></p>
+    </div>
+    <div class="calc-out" aria-live="polite">
+      <div style="display:grid;gap:10px">
+        <span class="out-label" id="bigLabel">Casa que puedes financiar</span>
+        <div class="big" id="bigNum">$0</div>
+      </div>
+      <div class="bar-out" aria-hidden="true"><div class="track"><i id="barFill"></i></div><div class="scale"><span>$0</span><span>$40,000</span><span>$80,000</span></div></div>
+      <div class="out-lines" id="lines"></div>
+      <div class="model-fit">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 17 L18 6 L32 17" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="8" y="16" width="20" height="15" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        <div><b id="fitName">Casa Pino</b><p id="fitDesc"></p></div>
+      </div>
+      <p class="fine">Estimación ilustrativa, sin terreno. Supone tasa de 10% anual en dólares, prima de 15% y plazo de 20 años. La cifra real depende de la aprobación del banco.</p>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- MODELS -->
+<section id="modelos">
+  <div class="models-head">
+    <div style="display:grid;gap:20px;max-width:720px"><span class="eyebrow">Modelos</span><h2>Tres casas pensadas para Honduras. <em>Todas se adaptan a ti.</em></h2></div>
+    <a class="tlink" href="#cotizar">Pedir planos</a>
+  </div>
+  <div class="models">
+    <article class="model">
+      <div class="ph"><span class="tag">Más pedida</span>
+        <svg viewBox="0 0 500 575" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs><linearGradient id="m2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#C9B8A3"/><stop offset="1" stop-color="#EADCC8"/></linearGradient></defs>
+          <rect width="500" height="575" fill="url(#m2)"/>
+          <path d="M0 360 L120 300 L240 335 L360 290 L500 330 V575 H0Z" fill="#9FA38E" opacity=".6"/>
+          <rect y="430" width="500" height="145" fill="#8E7760"/>
+          <rect x="30" y="250" width="440" height="12" fill="#F4EEE6"/>
+          <rect x="50" y="262" width="300" height="168" fill="#EFE7DC"/>
+          <rect x="350" y="290" width="110" height="140" fill="#6A4A34"/>
+          <g fill="#8C6446"><rect x="358" y="298" width="6" height="132"/><rect x="374" y="298" width="6" height="132"/><rect x="390" y="298" width="6" height="132"/><rect x="406" y="298" width="6" height="132"/><rect x="422" y="298" width="6" height="132"/><rect x="438" y="298" width="6" height="132"/></g>
+          <rect x="72" y="292" width="140" height="120" fill="#9DB3B3"/><line x1="142" y1="292" x2="142" y2="412" stroke="#EFE7DC" stroke-width="4"/>
+          <rect x="240" y="320" width="54" height="110" fill="#3F3027"/>
+          <rect x="20" y="430" width="460" height="6" fill="#F4EEE6"/>
+          <g fill="#56644F"><circle cx="20" cy="420" r="26"/><circle cx="480" cy="416" r="30"/></g>
+        </svg></div>
+      <div class="meta"><h3>Casa Pino</h3><span>100 m²</span></div>
+      <p>3 habitaciones, 2 baños, cocina abierta y área de lavandería.</p>
+      <div class="price">$52,000 <small>desde, sin terreno</small></div>
+    </article>
+    <article class="model">
+      <div class="ph">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="500" fill="#E8D5BE"/>
+          <rect y="360" width="400" height="140" fill="#A58566"/>
+          <path d="M20 235 L200 150 L380 235Z" fill="#B0602D"/>
+          <g stroke="#8C4A21" stroke-width="1.5"><line x1="80" y1="207" x2="320" y2="207"/><line x1="130" y1="183" x2="270" y2="183"/></g>
+          <rect x="50" y="235" width="300" height="125" fill="#F5EFE6"/>
+          <rect x="30" y="235" width="340" height="10" fill="#8C4A21"/>
+          <g fill="#6A4A34"><rect x="60" y="245" width="10" height="115"/><rect x="150" y="245" width="10" height="115"/><rect x="240" y="245" width="10" height="115"/><rect x="330" y="245" width="10" height="115"/></g>
+          <rect x="88" y="275" width="44" height="50" fill="#5C7B7D"/><rect x="268" y="275" width="44" height="50" fill="#5C7B7D"/>
+          <rect x="178" y="270" width="44" height="90" fill="#6A4A34"/>
+          <rect x="40" y="360" width="320" height="8" fill="#D8C6B0"/>
+          <g fill="#56644F"><circle cx="370" cy="345" r="26"/><path d="M28 360 c-6-50 6-90 0-130 c10 40 16 90 8 130z"/><path d="M32 232 c-30 6-46 22-56 36 c20-14 38-20 56-24z M32 232 c30 4 46 18 58 32 c-22-14-40-18-58-22z"/></g>
+        </svg></div>
+      <div class="meta"><h3>Casa Ceiba</h3><span>70 m²</span></div>
+      <p>2 habitaciones, 1 baño y corredor frontal con teja. Ideal para mamá y papá.</p>
+      <div class="price">$38,000 <small>desde, sin terreno</small></div>
+    </article>
+    <article class="model">
+      <div class="ph">
+        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <rect width="400" height="500" fill="#2A2420"/>
+          <circle cx="320" cy="120" r="40" fill="#E9B48C" opacity=".3"/>
+          <rect y="400" width="400" height="100" fill="#1A1613"/>
+          <rect x="40" y="160" width="320" height="10" fill="#E6DDD1"/>
+          <rect x="54" y="170" width="292" height="110" fill="#CFC4B7"/>
+          <rect x="30" y="280" width="340" height="10" fill="#E6DDD1"/>
+          <rect x="54" y="290" width="292" height="110" fill="#BDB1A3"/>
+          <rect x="70" y="190" width="120" height="70" fill="#F0B777"/><rect x="210" y="190" width="120" height="70" fill="#F0B777" opacity=".8"/>
+          <rect x="70" y="310" width="90" height="90" fill="#F0B777" opacity=".9"/>
+          <rect x="190" y="320" width="40" height="80" fill="#3A2F28"/>
+          <rect x="250" y="310" width="80" height="60" fill="#F0B777" opacity=".7"/>
+          <g stroke="#6A4A34" stroke-width="4"><line x1="250" y1="160" x2="250" y2="130"/></g>
+          <g fill="#14110E"><circle cx="30" cy="390" r="30"/><circle cx="378" cy="392" r="26"/></g>
+        </svg></div>
+      <div class="meta"><h3>Casa Caoba</h3><span>140 m²</span></div>
+      <p>Dos plantas, 4 habitaciones, 3 baños y terraza. Para la familia grande.</p>
+      <div class="price">$72,000 <small>desde, sin terreno</small></div>
+    </article>
+
+  </div>
+</section>
+
+<!-- FINANCE -->
+<section id="financiamiento">
+  <div class="sol-head">
+    <div style="display:grid;gap:20px"><span class="eyebrow">Financiamiento</span><h2>Tres formas de pagar. <em>Tú eliges.</em></h2></div>
+    <p class="lead">Con banco, con tus ahorros o con tu remesa mensual. Todas pasan por el fideicomiso.</p>
+  </div>
+  <div class="fin">
+    <article><span class="eyebrow">Con banco</span><h3>Hipoteca bancaria</h3><p>Un banco aliado financia la construcción y la convierte en hipoteca al terminar.</p><ul><li>Prima desde 10% a 20%</li><li>Plazos de hasta 20 años</li><li>Precalificación sin compromiso</li></ul></article>
+    <article><span class="eyebrow">Con tus ahorros</span><h3>Pago por fases</h3><p>Precio cerrado dividido en seis hitos. Depositas cada tramo al fideicomiso antes de iniciar la fase.</p><ul><li>Sin intereses ni deuda</li><li>5% retenido hasta que recibes conforme</li><li>Ideal con ahorros o reembolso de impuestos</li></ul></article>
+    <article><span class="eyebrow">Con tu remesa</span><h3>Cuota fija mensual</h3><p>Aportas lo mismo cada mes a tu propio fideicomiso y la obra avanza fase por fase según el saldo.</p><ul><li>Desde $300 al mes</li><li>Sin préstamo ni buró de crédito</li><li>Terreno también a plazos</li></ul></article>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section id="seguridad">
+  <div class="secure">
+    <div class="secure-l">
+      <span class="eyebrow">Tu dinero, protegido</span>
+      <h2>Nadie toca tu dinero hasta que <em>la obra avanza.</em></h2>
+      <p class="lead">Así se acaba el miedo de mandar dinero durante años y no ver la casa terminada.</p>
+      <blockquote><b>Nuestra regla de oro</b><p>Nunca te pediremos que deposites a una cuenta personal. Todo pago va al fideicomiso a nombre de Puente Constructora Honduras.</p></blockquote>
+    </div>
+    <div class="secure-r">
+      <div class="flow-item"><span class="n">i</span><div><b>Tú depositas desde EE.UU.</b><span>Transferencia, remesa o débito automático a la cuenta del fideicomiso.</span></div></div>
+      <div class="flow-item"><span class="n">ii</span><div><b>El banco lo resguarda</b><span>Recibes el estado de cuenta directo del banco, no de nosotros.</span></div></div>
+      <div class="flow-item"><span class="n">iii</span><div><b>El supervisor certifica</b><span>Un ingeniero independiente firma el acta de cada fase terminada.</span></div></div>
+      <div class="flow-item"><span class="n">iv</span><div><b>Se libera el pago y la obra sigue</b><span>Lo ves en tu portal, con fotos y cámara en vivo.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="preguntas">
+  <div class="faq-grid">
+    <div style="display:grid;gap:20px;align-content:start"><span class="eyebrow">Preguntas frecuentes</span><h2>Lo que más <em>nos preguntan.</em></h2></div>
+    <div class="faq">
+      <details open><summary>¿Tengo que viajar a Honduras para firmar?</summary><p>No. Firmas el contrato de forma electrónica y, para trámites del terreno, otorgas un poder especial en el consulado hondureño más cercano. Te guiamos paso a paso.</p></details>
+      <details><summary>¿En qué ciudades construyen?</summary><p>En la ciudad o municipio que tú elijas. Antes de firmar hacemos una visita técnica al terreno y revisamos acceso, agua y luz.</p></details>
+      <details><summary>¿Qué pasa si la obra se atrasa?</summary><p>El contrato tiene cronograma y penalidad por atraso. Además, el banco solo libera dinero cuando el supervisor certifica avance, así que nunca pagas por trabajo que no se ha hecho.</p></details>
+      <details><summary>¿Qué necesito para la hipoteca?</summary><p>El banco pide ingresos comprobables, como talones de pago o declaraciones de impuestos con SSN o ITIN. Si no calificas, la cuota fija mensual no requiere préstamo.</p></details>
+      <details><summary>¿Y si todavía no tengo terreno?</summary><p>Te mostramos terrenos con expediente legal verificado en la zona que prefieras, y el terreno también se puede pagar a plazos.</p></details>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- CONTACT + FOOTER -->
+<div class="contact bleed" id="cotizar">
+  <div class="wrap">
+    <div class="contact-in">
+      <div style="display:grid;gap:24px;align-content:start">
+        <span class="eyebrow">Hablemos</span>
+        <h2>Tu casa empieza con <em style="color:#E0A57C">una conversación.</em></h2>
+        <p class="lead">Escríbenos por WhatsApp o déjanos tus datos y te enviamos una cotización. Te respondemos en español, en tu horario.</p>
+        <div><a class="btn btn-light" href="https://wa.me/50431580149?text=Hola%2C%20Puente%20Constructora.%20Vivo%20fuera%20de%20Honduras%20y%20quiero%20construir%20mi%20casa%20all%C3%A1.%20%C2%BFMe%20pueden%20ayudar%20con%20una%20cotizaci%C3%B3n%3F" target="_blank" rel="noopener">Escríbenos por WhatsApp <span class="ln"></span></a></div>
+        <div class="hours"><span>Lun a vie · 5 pm a 10 pm (hora del Este)</span><span>Sáb y dom · 9 am a 6 pm</span></div>
+      </div>
+      <div class="qcard">
+        <h3>Cotización rápida</h3>
+<div class="qwrap">
+  <form class="qform" novalidate>
+    <div class="qfield">
+      <label for="qMsg">Mensaje</label>
+      <textarea id="qMsg" name="mensaje" rows="3">Hola, vivo en los Estados Unidos o el extranjero y quiero cotizar la construcción de mi casa en Honduras.</textarea>
+    </div>
+    <div class="qfield">
+      <label for="qName">Nombre y apellido</label>
+      <input id="qName" name="nombre" type="text" autocomplete="name" placeholder="Ej. María López">
+    </div>
+    <div class="qfield">
+      <label for="qMail">Correo electrónico</label>
+      <input id="qMail" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="tucorreo@ejemplo.com">
+    </div>
+    <input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="qerr" role="alert"></p>
+    <button class="btn btn-primary" type="submit" style="width:100%">Enviar cotización
+      <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12 12 4M6 4h6v6"/></svg></button>
+    <p class="fine">Te respondemos por correo en menos de 24 horas. No compartimos tus datos.</p>
+  </form>
+  <div class="qok" hidden>
+    <b>Gracias.</b>
+    <p>Recibimos tu solicitud. Te escribiremos a tu correo en menos de 24 horas. Si prefieres, también puedes escribirnos por WhatsApp.</p>
+  </div>
+</div>
+
+      </div>
+    </div>
+    <div class="foot">
+      <div style="display:grid;gap:16px;align-content:start"><a class="logo" href="#inicio"><span class="mono">PC</span><span class="wm"><b>Puente Constructora</b><small>Honduras</small></span></a><span>Tu esfuerzo allá, tu casa aquí.</span></div>
+      <div><h4>Explorar</h4><ul><li><a href="#proceso">Proceso</a></li><li><a href="#calculadora">Calculadora</a></li><li><a href="#modelos">Modelos</a></li><li><a href="#financiamiento">Financiamiento</a></li></ul></div>
+      <div><h4>Empresa</h4><ul><li>Puente Constructora LLC (Texas)</li><li>Puente Constructora Honduras, S.A. de C.V.</li><li>San Pedro Sula, Cortés</li></ul></div>
+    </div>
+    <p class="mock-note">Precios, tasas y plazos son referenciales y se confirman por escrito en tu cotización.</p>
+  </div>
+</div>
+
+<div class="mbar">
+  <a class="btn btn-line" href="#cotizar">Cotizar</a>
+  <a class="btn btn-wa" href="https://wa.me/50431580149?text=Hola%2C%20Puente%20Constructora.%20Vivo%20fuera%20de%20Honduras%20y%20quiero%20construir%20mi%20casa%20all%C3%A1.%20%C2%BFMe%20pueden%20ayudar%20con%20una%20cotizaci%C3%B3n%3F" target="_blank" rel="noopener">WhatsApp</a>
+</div>
+</div></div>
+
+
+
+<script>
+(function(){
+  var MODELS=[
+    {n:'Casa Ceiba',p:38000,d:'70 m² · 2 habitaciones · 1 baño'},
+    {n:'Casa Pino',p:52000,d:'100 m² · 3 habitaciones · 2 baños'},
+    {n:'Casa Caoba',p:72000,d:'140 m² · 4 habitaciones · 3 baños'}
+  ];
+  function usd(v){return '$'+Math.round(v).toLocaleString('en-US');}
+  function r100(v){return Math.round(v/100)*100;}
+  function row(a,b){return '<div><span>'+a+'</span><span>'+b+'</span></div>';}
+  function hipoteca(m){var r=0.10/12,n=240;var loan=m*(1-Math.pow(1+r,-n))/r;return {loan:loan,price:loan/0.85};}
+  window.PCH={models:MODELS,usd:usd,r100:r100,hipoteca:hipoteca};
+
+  /* Calculator */
+  var monto=document.getElementById('monto');
+  if(monto){
+    var $=function(id){return document.getElementById(id);};
+    var state={m:+monto.value,ruta:'hipoteca'};
+    function update(){
+      var m=+monto.value; state.m=m;
+      var ruta=document.querySelector('input[name=ruta]:checked').value; state.ruta=ruta;
+      $('montoTxt').textContent=usd(m);
+      var fit;
+      if(ruta==='hipoteca'){
+        var h=hipoteca(m);
+        $('bigNum').textContent=usd(r100(h.price));
+        $('bigLabel').textContent='Casa que puedes financiar';
+        $('lines').innerHTML=row('Crédito del banco',usd(r100(h.loan)))+row('Prima inicial (15%)',usd(r100(h.price*0.15)))+row('Cuota mensual',usd(m)+' × 240 meses');
+        $('rutaNota').textContent='El banco aliado financia la obra y te la entrega terminada. Pagas una prima al inicio y la cuota mensual durante 20 años.';
+        fit=MODELS.filter(function(x){return x.p<=h.price;}).pop();
+        state.result=usd(r100(h.price));
+      }else{
+        var target=MODELS.filter(function(x){return x.p/m<=72;}).pop()||MODELS[0];
+        var months=Math.ceil(target.p/m);
+        $('bigNum').textContent=months+' meses';
+        $('bigLabel').textContent='Para completar tu '+target.n;
+        $('lines').innerHTML=row('Precio cerrado',usd(target.p))+row('Aporte mensual',usd(m))+row('Intereses','$0');
+        $('rutaNota').textContent='Aportas una cuota fija a tu propio fideicomiso y la obra avanza fase por fase según el saldo. Sin préstamo y sin intereses.';
+        fit=target;
+        state.result=target.n+' en '+months+' meses';
+      }
+      var maxP=80000,val=ruta==='hipoteca'?hipoteca(m).price:fit.p;
+      if($('barFill'))$('barFill').style.width=Math.min(100,val/maxP*100)+'%';
+      if(fit){$('fitName').textContent=fit.n;$('fitDesc').textContent=fit.d;}
+      else{$('fitName').textContent='Casa Ceiba con prima mayor';$('fitDesc').textContent='Con una prima más alta alcanzas el modelo de 70 m².';}
+      window.PCH_LAST={monto:state.m,ruta:state.ruta,resultado:state.result};document.dispatchEvent(new CustomEvent('pch:calc',{detail:state}));
+    }
+    monto.addEventListener('input',update);
+    document.querySelectorAll('input[name=ruta]').forEach(function(el){el.addEventListener('change',update);});
+    document.querySelectorAll('[data-monto]').forEach(function(b){b.addEventListener('click',function(){monto.value=b.getAttribute('data-monto');update();});});
+    update();
+  }
+
+  /* Quick quote form */
+  document.querySelectorAll('form.qform').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=f.querySelector('[name=nombre]'),mail=f.querySelector('[name=correo]'),err=f.querySelector('.qerr');
+      var msg='';
+      name.removeAttribute('aria-invalid');mail.removeAttribute('aria-invalid');
+      if(name.value.trim().split(/\s+/).length<2){msg='Escribe tu nombre y apellido.';name.setAttribute('aria-invalid','true');}
+      else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())){msg='Revisa tu correo electrónico, parece incompleto.';mail.setAttribute('aria-invalid','true');}
+      if(msg){err.textContent=msg;return;}
+      err.textContent='';
+      var first=name.value.trim().split(/\s+/)[0];
+      var ok=f.parentNode.querySelector('.qok'),btn=f.querySelector('[type=submit]');
+      var msgEl=f.querySelector('[name=mensaje]'),hp=f.querySelector('[name=web]');
+      btn.disabled=true;btn.style.opacity='.6';
+      fetch('/api/cotizar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        nombre:name.value.trim(),correo:mail.value.trim(),mensaje:msgEl?msgEl.value.trim():'',
+        pagina:location.pathname.indexOf('calculadora')>=0?'calculadora':'inicio',calculo:window.PCH_LAST||null,web:hp?hp.value:''})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);
+        ok.querySelector('b').textContent='Gracias, '+first+'.';
+        f.hidden=true;ok.hidden=false;})
+      .catch(function(){err.textContent='No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos por WhatsApp al +504 3158-0149.';})
+      .then(function(){btn.disabled=false;btn.style.opacity='';});
+    });
+  });
+})();
+
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('.slide')),dots=[].slice.call(document.querySelectorAll('.dots button')),i=0,t;
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function go(n){slides[i].classList.remove('on');dots[i].removeAttribute('aria-current');i=n;slides[i].classList.add('on');dots[i].setAttribute('aria-current','true');document.getElementById('slideN').textContent='0'+(i+1);document.getElementById('slideCap').textContent=slides[i].dataset.cap;}
+  function play(){clearInterval(t);if(!reduce)t=setInterval(function(){go((i+1)%slides.length);},6500);}
+  dots.forEach(function(d,k){d.addEventListener('click',function(){go(k);play();});});
+  play();
+})();
+</script>
+
+</body>
+</html>

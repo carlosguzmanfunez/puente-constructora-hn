@@ -1,0 +1,5 @@
+{
+  "name": "puente-constructora-hn",
+  "private": true,
+  "engines": { "node": ">=20" }
+}

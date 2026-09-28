@@ -1,0 +1,588 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Calculadora de remesa · Puente Constructora Honduras</title>
+<meta name="description" content="Calcula qué casa en Honduras puedes construir con tu remesa mensual: hipoteca bancaria o cuota fija sin intereses.">
+<link rel="canonical" href="https://puente-constructora-hn.vercel.app/calculadora">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_HN">
+<meta property="og:site_name" content="Puente Constructora Honduras">
+<meta property="og:title" content="Calculadora de remesa · Puente Constructora Honduras">
+<meta property="og:description" content="Calcula qué casa en Honduras puedes construir con tu remesa mensual: hipoteca bancaria o cuota fija sin intereses.">
+<meta property="og:url" content="https://puente-constructora-hn.vercel.app/calculadora">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#F3EFE9">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap">
+<style>
+:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+:root{
+  --ground:#F3EFE9; --paper:#FBF9F5; --ink:#1E1B18; --muted:#6D655C; --line:#DCD3C8;
+  --terra:#B0602D; --terra-deep:#8C4A21; --terra-soft:#F1E3D7; --on-terra:#FFFFFF;
+  --night:#171411; --night-2:#211D19; --on-night:#EFE8DE; --on-night-muted:#A99F93; --night-line:rgba(239,232,222,.16);
+  --ok:#3F7A57;
+  --serif:"Cormorant Garamond","Cormorant",Garamond,"Times New Roman",serif;
+  --sans:"Jost","Avenir Next","Segoe UI",Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --ground:#13110F; --paper:#1B1815; --ink:#EDE6DC; --muted:#A1978B; --line:#332D27;
+    --terra:#D98A58; --terra-deep:#E9A77D; --terra-soft:#2A1D14; --on-terra:#150F0B; --ok:#7FBF98;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --ground:#13110F; --paper:#1B1815; --ink:#EDE6DC; --muted:#A1978B; --line:#332D27;
+  --terra:#D98A58; --terra-deep:#E9A77D; --terra-soft:#2A1D14; --on-terra:#150F0B; --ok:#7FBF98;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-x:clip}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+body{background:var(--ground);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16.5px;line-height:1.65;margin:0}
+#site{container:site/inline-size;margin-inline:auto}
+.pad{padding-inline:40px;padding-block:0}
+.wrap{max-width:1240px;margin:0 auto}
+a{color:inherit}
+:focus-visible{outline:1.5px solid var(--terra);outline-offset:4px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(38px,4.8cqi,64px);line-height:1.02}
+h3{font-size:27px;line-height:1.1}
+h2 em,h1 em{font-style:italic;color:var(--terra)}
+p{margin:0}
+.eyebrow{font-family:var(--sans);font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--terra)}
+.lead{font-size:18px;color:var(--muted);max-width:52ch;font-weight:300}
+section{padding-block:128px 0}
+.bleed{margin-inline:-40px}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;font-family:var(--sans);font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;padding:18px 28px;border:1px solid transparent;border-radius:0;cursor:pointer;transition:background .25s,color .25s,border-color .25s;white-space:nowrap}
+.btn-terra{background:var(--terra);color:var(--on-terra)}
+.btn-terra:hover{background:var(--terra-deep)}
+.btn-line{border-color:currentColor;background:transparent;color:var(--ink)}
+.btn-line:hover{background:var(--ink);color:var(--ground)}
+.btn-light{border-color:rgba(255,255,255,.7);color:#fff;background:transparent}
+.btn-light:hover{background:#fff;color:#171411}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{background:#1EBE5A}
+.btn-wa svg{flex:none}
+.btn .ln{width:26px;height:1px;background:currentColor;transition:width .25s}
+.btn:hover .ln{width:38px}
+.tlink{display:inline-flex;align-items:center;gap:12px;font-size:12.5px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--ink);padding-bottom:6px;border-bottom:1px solid var(--terra)}
+.tlink:hover{color:var(--terra)}
+
+/* HEADER */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;margin-inline:-40px;padding:0 40px;height:84px;display:flex;align-items:center;background:var(--ground);border-bottom:1px solid var(--line);transition:background .3s}
+.top .wrap{width:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo .mono{width:42px;height:42px;border:1px solid var(--terra);display:grid;place-items:center;font-family:var(--serif);font-size:20px;font-weight:600;color:var(--terra);letter-spacing:.02em}
+.logo .wm{display:grid;line-height:1.15}
+.logo b{font-family:var(--sans);font-weight:500;font-size:13.5px;letter-spacing:.26em;text-transform:uppercase}
+.logo small{font-size:10px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted)}
+.menu{display:flex;gap:34px}
+.menu a{font-size:12px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--muted);transition:color .2s}
+.menu a:hover{color:var(--ink)}
+.top .btn{padding:13px 20px}
+
+/* HERO */
+.hero{position:relative;min-height:clamp(520px,72vh,720px);color:#fff;display:grid;align-items:end;overflow:hidden;background:#171411}
+.slides{position:absolute;inset:0}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.slide.on{opacity:1}
+.slide svg{width:100%;height:100%;display:block}
+.slide.on svg{animation:kb 14s ease-out both}
+@keyframes kb{from{transform:scale(1.06)}to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(18,15,12,.25) 0%,rgba(18,15,12,0) 22%,rgba(18,15,12,.25) 55%,rgba(18,15,12,.82) 100%)}
+.hero-in{position:relative;z-index:2;padding:56px 40px 56px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end;max-width:1320px;width:100%;margin:0 auto}
+.hero-copy{display:grid;gap:26px;max-width:760px}
+.hero .eyebrow{color:#E9B48C}
+.hero h1{font-size:clamp(52px,7.6cqi,112px);line-height:.92;font-weight:500;color:#fff}
+.hero h1 em{color:#F0C39E}
+.hero p{font-size:18.5px;font-weight:300;color:rgba(255,255,255,.82);max-width:48ch}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+.hero-meta{display:grid;gap:14px;justify-items:end;text-align:right;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.hero-meta .count{font-family:var(--serif);font-size:30px;letter-spacing:0;color:#fff}
+.hero-meta .count span{color:rgba(255,255,255,.5)}
+.dots{display:flex;gap:10px}
+.dots button{width:34px;height:2px;border:0;padding:0;background:rgba(255,255,255,.35);cursor:pointer}
+.dots button[aria-current=true]{background:#fff}
+.route{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+.route i{display:block;width:48px;height:1px;background:repeating-linear-gradient(90deg,#E9B48C 0 4px,transparent 4px 8px)}
+
+/* INTRO */
+.intro{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start}
+.intro .big{font-family:var(--serif);font-size:clamp(30px,3.4cqi,46px);line-height:1.18;font-weight:400;color:var(--ink)}
+.intro .big em{font-style:italic;color:var(--terra)}
+.intro-side{display:grid;gap:28px;padding-top:12px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:88px;border-top:1px solid var(--line)}
+.stats div{padding:28px 24px 0 0;display:grid;gap:6px}
+.stats div+div{padding-left:24px;border-left:1px solid var(--line)}
+.stats b{font-family:var(--serif);font-weight:500;font-size:52px;line-height:1;color:var(--terra)}
+.stats span{font-size:14px;color:var(--muted);line-height:1.5}
+
+/* PROBLEM */
+.problem{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.problem .head{display:grid;gap:22px;align-content:start}
+.pains{list-style:none;margin:0;padding:0;border-top:1px solid var(--ink)}
+.pains li{display:grid;grid-template-columns:56px 1fr;gap:12px;padding:28px 0;border-bottom:1px solid var(--line);font-family:var(--serif);font-size:26px;line-height:1.25}
+.pains li span{font-family:var(--sans);font-size:12px;letter-spacing:.2em;color:var(--terra);padding-top:9px}
+
+/* SOLUTION */
+.sol-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px}
+.sol-head .lead{max-width:none}
+.values{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line)}
+.value{padding:40px 32px 8px 0;display:grid;gap:16px;align-content:start}
+.value+.value{padding-left:32px;border-left:1px solid var(--line)}
+.value svg{color:var(--terra)}
+.value p{color:var(--muted);font-size:15.5px;font-weight:300}
+.value ul{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.value li::before{content:"— ";color:var(--terra)}
+
+/* PROCESS (dark) */
+.dark{background:var(--night);color:var(--on-night);padding:120px 40px;margin-top:128px}
+.dark .eyebrow{color:#E0A57C}
+.dark h2{color:#fff}
+.dark .lead{color:var(--on-night-muted)}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);margin-top:64px;border-top:1px solid var(--night-line)}
+.step{padding:32px 24px 0 0;display:grid;gap:14px;align-content:start}
+.step+.step{padding-left:24px;border-left:1px solid var(--night-line)}
+.step .n{font-family:var(--serif);font-size:56px;line-height:1;color:#E0A57C;font-weight:400}
+.step h3{font-size:24px;color:#fff}
+.step p{font-size:15px;color:var(--on-night-muted);font-weight:300}
+
+/* CALCULATOR (visual only) */
+.calc-head{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:56px}
+.calc{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:var(--paper)}
+.calc-in{padding:48px;display:grid;gap:32px;align-content:start}
+.calc-out{padding:48px;display:grid;gap:26px;align-content:start;background:var(--terra-soft);border-left:1px solid var(--line)}
+.field{display:grid;gap:12px}
+.field>label,.field>.flabel,.quick .flabel{font-size:11.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.amount{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:clamp(60px,6.4cqi,88px);font-weight:500;line-height:.9;font-variant-numeric:lining-nums tabular-nums}
+.amount small{font-family:var(--sans);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+input[type=range]{width:100%;accent-color:var(--terra);height:30px}
+.ticks{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.quick{display:grid;gap:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;font-size:14px;padding:8px 16px;border:1px solid var(--line);background:transparent;color:var(--ink);cursor:pointer;border-radius:0;transition:border-color .2s,background .2s}
+.chips button:hover{border-color:var(--terra)}
+.seg{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ink)}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{text-align:center;padding:14px 10px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;color:var(--ink);line-height:1.4}
+.seg label+input+label{border-left:1px solid var(--ink)}
+.seg input:checked+label{background:var(--ink);color:var(--ground)}
+.seg input:focus-visible+label{outline:1.5px solid var(--terra);outline-offset:3px}
+.out-label{font-size:11.5px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--terra-deep)}
+.calc-out .big{font-family:var(--serif);font-size:clamp(60px,6.6cqi,96px);font-weight:500;line-height:.9;color:var(--ink);font-variant-numeric:lining-nums tabular-nums}
+.bar-out{display:grid;gap:10px}
+.bar-out .track{height:3px;background:color-mix(in srgb,var(--terra) 22%,transparent)}
+.bar-out .track i{display:block;height:100%;width:50%;background:var(--terra);transition:width .4s ease}
+.bar-out .scale{display:flex;justify-content:space-between;font-size:11.5px;letter-spacing:.12em;color:var(--muted)}
+.out-lines{display:grid;border-top:1px solid color-mix(in srgb,var(--terra) 30%,transparent)}
+.out-lines div{display:flex;justify-content:space-between;gap:12px;padding:14px 0;border-bottom:1px solid color-mix(in srgb,var(--terra) 30%,transparent);font-size:15px}
+.out-lines span:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:500}
+.model-fit{display:flex;align-items:center;gap:16px;padding:18px 20px;background:var(--paper);border:1px solid var(--line)}
+.model-fit svg{color:var(--terra)}
+.model-fit b{font-family:var(--serif);font-size:24px;font-weight:600}
+.model-fit p{font-size:14px;color:var(--muted)}
+.fine{font-size:13px;color:var(--muted);font-weight:300}
+
+/* MODELS (portfolio) */
+.models-head{display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
+.models{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:28px}
+.model{display:grid;gap:18px;align-content:start;text-decoration:none}
+.model .ph{aspect-ratio:4/5;max-width:100%;overflow:hidden;position:relative}
+.model:first-child .ph{aspect-ratio:4/4.6}
+.model .ph svg{width:100%;height:100%;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.model:hover .ph svg{transform:scale(1.045)}
+.model .tag{position:absolute;top:16px;left:16px;background:var(--paper);color:var(--ink);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;padding:7px 12px}
+.model .meta{display:flex;justify-content:space-between;align-items:baseline;gap:16px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.model h3{font-size:32px}
+.model .meta span{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.model p{color:var(--muted);font-size:15px;font-weight:300}
+.model .price{font-family:var(--serif);font-size:28px;font-weight:500}
+.model .price small{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
+
+/* FINANCE */
+.fin{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.fin article{padding:40px 36px 0 0;display:grid;gap:14px;align-content:start}
+.fin article+article{padding-left:36px;border-left:1px solid var(--line)}
+.fin p{color:var(--muted);font-weight:300}
+.fin ul{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:10px;font-size:15px}
+.fin li{padding-bottom:10px;border-bottom:1px solid var(--line);display:flex;gap:10px}
+.fin li::before{content:"—";color:var(--terra)}
+
+/* SECURITY */
+.secure{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--paper)}
+.secure-l{padding:64px 56px;display:grid;gap:24px;align-content:start;border-right:1px solid var(--line)}
+.secure-l blockquote{margin:12px 0 0;padding:24px 0 0;border-top:1px solid var(--line);display:grid;gap:10px}
+.secure-l blockquote b{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra);font-weight:500}
+.secure-l blockquote p{font-family:var(--serif);font-size:24px;line-height:1.3;font-style:italic}
+.secure-r{padding:64px 56px;display:grid;gap:0;align-content:center}
+.flow-item{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:22px 0;border-bottom:1px solid var(--line)}
+.flow-item:first-child{padding-top:0}
+.flow-item:last-child{border-bottom:0;padding-bottom:0}
+.flow-item .n{font-family:var(--serif);font-size:30px;line-height:1;color:var(--terra)}
+.flow-item b{font-family:var(--serif);font-size:23px;font-weight:600;display:block;line-height:1.2}
+.flow-item span{font-size:15px;color:var(--muted);font-weight:300}
+
+/* FAQ */
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.faq{border-top:1px solid var(--ink)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;padding:26px 0;display:flex;justify-content:space-between;gap:20px;font-family:var(--serif);font-size:24px;font-weight:500;line-height:1.25}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:14px;height:14px;margin-top:8px;background:linear-gradient(var(--terra),var(--terra)) center/14px 1.5px no-repeat,linear-gradient(var(--terra),var(--terra)) center/1.5px 14px no-repeat;transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
+
+/* CONTACT */
+.contact{background:var(--night);color:var(--on-night);padding:120px 40px 0;margin-top:128px}
+.contact-in{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;padding-bottom:100px}
+.contact h2{color:#fff}
+.contact .eyebrow{color:#E0A57C}
+.contact .lead{color:var(--on-night-muted)}
+.hours{display:grid;gap:8px;margin-top:8px;padding-top:24px;border-top:1px solid var(--night-line);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--on-night-muted)}
+.qcard{background:var(--paper);color:var(--ink);padding:44px}
+.qcard h3{margin-bottom:22px}
+.qform{display:grid;gap:18px}
+.qfield{display:grid;gap:8px}
+.qfield label{font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.qfield input,.qfield textarea{font:inherit;font-size:16px;font-weight:400;color:var(--ink);background:transparent;border:0;border-bottom:1px solid var(--line);border-radius:0;padding:10px 0;width:100%;transition:border-color .2s}
+.qfield textarea{resize:vertical;min-height:92px;line-height:1.55;border:1px solid var(--line);padding:12px 14px}
+.qfield input:focus,.qfield textarea:focus{outline:none;border-color:var(--terra)}
+.qfield input[aria-invalid=true]{border-color:#B3261E}
+.qerr{font-size:13px;color:#B3261E}
+.qform .btn{width:100%;background:var(--terra);color:var(--on-terra)}
+.qform .btn:hover{background:var(--terra-deep)}
+.qform .arrow{display:none}
+.qok{display:grid;gap:10px;padding:28px;background:var(--terra-soft)}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.qok b{font-family:var(--serif);font-size:30px;font-weight:500}
+.qok p{color:var(--muted)}
+.foot{border-top:1px solid var(--night-line);padding-block:40px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:32px;font-size:14px;color:var(--on-night-muted)}
+.foot .logo b{color:#fff}
+.foot .logo small{color:var(--on-night-muted)}
+.foot .logo .mono{border-color:#E0A57C;color:#E0A57C}
+.foot h4{margin:0 0 12px;font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:#E0A57C}
+.foot a{text-decoration:none}
+.foot a:hover{color:#fff}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.mock-note{font-size:12.5px;padding:16px 0 40px;color:var(--on-night-muted);border-top:1px solid var(--night-line)}
+
+/* MOBILE BAR */
+.mbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:45;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--paper);border-top:1px solid var(--line);gap:10px}
+.mbar .btn{flex:1;padding:15px 10px;font-size:11.5px}
+
+@container site (max-width:1060px){
+  .menu{display:none}
+  .intro,.problem,.sol-head,.calc-head,.faq-grid,.contact-in{grid-template-columns:1fr;gap:40px}
+  .values{grid-template-columns:1fr 1fr}
+  .value:nth-child(3){padding-left:0;border-left:0}
+  .value:nth-child(n+3){border-top:1px solid var(--line)}
+  .steps{grid-template-columns:1fr;border-top:0}
+  .step,.step+.step{padding:24px 0;border-left:0;border-top:1px solid var(--night-line);grid-template-columns:80px 1fr;column-gap:20px}
+  .step .n{grid-row:span 2;font-size:44px}
+  .calc{grid-template-columns:1fr}
+  .calc-out{border-left:0;border-top:1px solid var(--line)}
+  .models{grid-template-columns:1fr 1fr}
+  .model:first-child{grid-column:span 2}
+  .model:first-child .ph{aspect-ratio:16/10}
+  .secure{grid-template-columns:1fr}
+  .secure-l{border-right:0;border-bottom:1px solid var(--line)}
+  .hero-in{grid-template-columns:1fr}
+  .hero-meta{justify-items:start;text-align:left}
+}
+@container site (max-width:640px){
+  .pad{padding-inline:20px;padding-bottom:84px}
+  .top{margin-inline:-20px;padding-inline:20px;height:70px}
+  .top .btn{display:none}
+  .logo .mono{width:36px;height:36px;font-size:17px}
+  .logo b{font-size:12px;letter-spacing:.2em}
+  .bleed{margin-inline:-20px}
+  .hero{min-height:560px}
+  .hero-in{padding:0 20px 40px}
+  .hero-meta{display:none}
+  .route{letter-spacing:.12em;font-size:11px;gap:8px}
+  .route i{width:24px}
+  section{padding-block:88px 0}
+  .stats{grid-template-columns:1fr 1fr;margin-top:56px}
+  .stats div:nth-child(3){padding-left:0;border-left:0}
+  .stats div:nth-child(n+3){border-top:1px solid var(--line);margin-top:24px}
+  .stats b{font-size:40px}
+  .pains li{font-size:22px;grid-template-columns:40px 1fr}
+  .values{grid-template-columns:1fr}
+  .value,.value+.value{padding:28px 0;border-left:0;border-top:1px solid var(--line)}
+  .value:first-child{border-top:0}
+  .dark,.contact{padding-inline:20px;margin-top:88px}
+  .dark{padding-block:80px}
+  .contact{padding-top:80px}
+  .calc-in,.calc-out{padding:28px 22px}
+  .models{grid-template-columns:1fr}
+  .model:first-child{grid-column:auto}
+  .model:first-child .ph,.model .ph{aspect-ratio:4/3.4}
+  .fin{grid-template-columns:1fr}
+  .fin article,.fin article+article{padding:32px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .secure-l,.secure-r{padding:36px 24px}
+  .qcard{padding:28px 22px}
+  .foot{grid-template-columns:1fr}
+  .mbar{display:flex}
+  .btn{padding:16px 22px}
+}
+
+
+
+
+.back{display:inline-flex;align-items:center;gap:10px;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--terra)}
+.page-head{padding-block:72px 48px;display:grid;gap:22px;max-width:860px}
+.page-head h1{font-size:clamp(48px,6.4cqi,92px);line-height:.95}
+.page-head h1 span{font-style:italic;color:var(--terra)}
+.label{font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--terra)}
+.sec-head{display:grid;gap:18px;margin-bottom:48px}
+.compare{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.compare article{padding:36px 32px 0 0;display:grid;gap:12px;align-content:start}
+.compare article+article{padding-left:32px;border-left:1px solid var(--line)}
+.compare .tag{font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--terra)}
+.compare p{color:var(--muted);font-weight:300}
+.compare dl{margin:8px 0 0;display:grid;grid-template-columns:auto 1fr;gap:0;font-size:15px}
+.compare dt,.compare dd{padding:10px 0;border-bottom:1px solid var(--line);margin:0}
+.compare dt{color:var(--muted)}
+.compare dd{text-align:right;font-weight:500}
+.send{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);background:var(--paper)}
+.send>div:first-child{padding:56px;border-right:1px solid var(--line)}
+.send>div:last-child{padding:56px}
+.send .est{margin-top:12px;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:4px}
+.send .est small{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--terra)}
+.send .est b{font-family:var(--serif);font-size:38px;font-weight:500}
+footer{margin-top:120px;padding-block:32px 48px;border-top:1px solid var(--line);display:grid;gap:12px;font-size:14px;color:var(--muted)}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+footer .mock-note{border:0;padding:0;color:var(--muted)}
+@container site (max-width:1060px){.compare{grid-template-columns:1fr}.compare article,.compare article+article{padding:28px 0;border-left:0}.send{grid-template-columns:1fr}.send>div:first-child{border-right:0;border-bottom:1px solid var(--line)}}
+@container site (max-width:640px){.send>div:first-child,.send>div:last-child{padding:30px 22px}}
+</style>
+</head>
+<body>
+<div id="site"><div class="pad">
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="Puente Constructora Honduras, volver al inicio"><span class="mono">PC</span><span class="wm"><b>Puente Constructora</b><small>Honduras</small></span></a>
+    <a class="btn btn-line" href="#enviar">Recibir cotización</a>
+  </div>
+</header>
+
+<div class="wrap">
+  <header class="page-head">
+    <a class="back" href="/"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3 5 8l5 5"/></svg>Volver al inicio</a>
+    <span class="label">Calculadora de remesa</span>
+    <h1>Con lo que envías al mes, <span>¿qué casa puedes tener?</span></h1>
+    <p class="lead">Elige cuánto puedes aportar cada mes y cómo quieres pagar. Te mostramos qué casa alcanzas y cuánto tiempo toma.</p>
+  </header>
+
+  <div class="calc">
+    <div class="calc-in">
+      <div class="field">
+        <label for="monto">Lo que puedo aportar cada mes</label>
+        <div class="amount" aria-live="polite"><span id="montoTxt">$500</span><small>USD / mes</small></div>
+        <input type="range" id="monto" min="200" max="1500" step="50" value="500">
+        <div class="ticks"><span>$200</span><span>$1,500</span></div>
+      </div>
+      <div class="quick">
+        <span class="flabel">Montos comunes</span>
+        <div class="chips"><button type="button" data-monto="300">$300</button><button type="button" data-monto="500">$500</button><button type="button" data-monto="800">$800</button><button type="button" data-monto="1200">$1,200</button></div>
+      </div>
+      <div class="field">
+        <span class="flabel">Cómo quiero pagar</span>
+        <div class="seg" role="radiogroup" aria-label="Forma de pago">
+          <input type="radio" name="ruta" id="rHipoteca" value="hipoteca" checked><label for="rHipoteca">Hipoteca bancaria</label>
+          <input type="radio" name="ruta" id="rCuota" value="cuota"><label for="rCuota">Construcción programada</label>
+        </div>
+      </div>
+      <p class="fine" id="rutaNota"></p>
+    </div>
+    <div class="calc-out" aria-live="polite">
+      <div style="display:grid;gap:10px">
+        <span class="out-label" id="bigLabel">Casa que puedes financiar</span>
+        <div class="big" id="bigNum">$0</div>
+      </div>
+      <div class="bar-out" aria-hidden="true"><div class="track"><i id="barFill"></i></div><div class="scale"><span>$0</span><span>$40,000</span><span>$80,000</span></div></div>
+      <div class="out-lines" id="lines"></div>
+      <div class="model-fit">
+        <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 17 L18 6 L32 17" fill="none" stroke="var(--pine)" stroke-width="2.2"/><rect x="8" y="16" width="20" height="15" fill="none" stroke="var(--pine)" stroke-width="2.2"/></svg>
+        <div><b id="fitName">Casa Pino</b><p id="fitDesc"></p></div>
+      </div>
+      <p class="fine">Estimación ilustrativa, sin terreno. Supone tasa de 10% anual en dólares, prima de 15% y plazo de 20 años. La cifra real depende de la aprobación del banco.</p>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <span class="label">Compara</span>
+      <h2>Tres formas de pagar <em>tu casa.</em></h2>
+    </div>
+    <div class="compare">
+      <article><span class="tag">Con banco</span><h3>Hipoteca bancaria</h3><p>El banco financia la obra y la recibes terminada.</p>
+        <dl><dt>Prima</dt><dd>10% a 20%</dd><dt>Plazo</dt><dd>hasta 20 años</dd><dt>Requisito</dt><dd>ingresos comprobables</dd></dl></article>
+      <article><span class="tag">Con tus ahorros</span><h3>Pago por fases</h3><p>Depositas cada tramo antes de iniciar la fase.</p>
+        <dl><dt>Intereses</dt><dd>$0</dd><dt>Tramos</dt><dd>6 hitos</dd><dt>Retención</dt><dd>5% hasta la entrega</dd></dl></article>
+      <article><span class="tag">Con tu remesa</span><h3>Cuota fija mensual</h3><p>La obra avanza según tu saldo en el fideicomiso.</p>
+        <dl><dt>Desde</dt><dd>$300 / mes</dd><dt>Intereses</dt><dd>$0</dd><dt>Requisito</dt><dd>ninguno de crédito</dd></dl></article>
+    </div>
+  </section>
+
+  <section id="enviar">
+    <div class="send">
+      <div style="display:grid;gap:14px;align-content:start">
+        <span class="label">Siguiente paso</span>
+        <h2>Recibe esta estimación <em>en tu correo.</em></h2>
+        <p class="lead">Un asesor revisa tu caso y te manda una cotización con números reales para tu ciudad.</p>
+        <div class="est"><small>Tu estimación</small><b id="estTxt">Casa de $60,900</b></div>
+      </div>
+      <div>
+<div class="qwrap">
+  <form class="qform" novalidate>
+    <div class="qfield">
+      <label for="qMsg">Mensaje</label>
+      <textarea id="qMsg" name="mensaje" rows="3">Hola, vivo en los Estados Unidos o el extranjero y quiero cotizar la construcción de mi casa en Honduras.</textarea>
+    </div>
+    <div class="qfield">
+      <label for="qName">Nombre y apellido</label>
+      <input id="qName" name="nombre" type="text" autocomplete="name" placeholder="Ej. María López">
+    </div>
+    <div class="qfield">
+      <label for="qMail">Correo electrónico</label>
+      <input id="qMail" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="tucorreo@ejemplo.com">
+    </div>
+    <input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <p class="qerr" role="alert"></p>
+    <button class="btn btn-primary" type="submit" style="width:100%">Enviar cotización
+      <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12 12 4M6 4h6v6"/></svg></button>
+    <p class="fine">Te respondemos por correo en menos de 24 horas. No compartimos tus datos.</p>
+  </form>
+  <div class="qok" hidden>
+    <b>Gracias.</b>
+    <p>Recibimos tu solicitud. Te escribiremos a tu correo en menos de 24 horas. Si prefieres, también puedes escribirnos por WhatsApp.</p>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="row">
+      <span><b style="color:var(--ink);font-family:var(--display)">Puente Constructora Honduras</b> · Tu esfuerzo allá, tu casa aquí.</span>
+      <a href="/" style="color:var(--muted)">Volver al inicio</a>
+    </div>
+    <p class="mock-note">Precios, tasas y plazos son referenciales y se confirman por escrito en tu cotización.</p>
+  </footer>
+</div>
+
+<div class="mbar">
+  <a class="btn btn-line" href="/">Inicio</a>
+  <a class="btn btn-terra" href="#enviar">Cotizar</a>
+</div>
+
+<script>
+var BASE_MSG='Hola, vivo en los Estados Unidos o el extranjero y quiero cotizar la construcción de mi casa en Honduras.';
+document.addEventListener('pch:calc',function(e){
+  var s=e.detail, ruta=s.ruta==='hipoteca'?'con hipoteca':'con construcción programada';
+  var txt=(s.ruta==='hipoteca'?'Casa de ':'')+s.result;
+  var est=document.getElementById('estTxt'); if(est) est.textContent=txt;
+  var msg=document.getElementById('qMsg');
+  if(msg && !msg.dataset.touched) msg.value=BASE_MSG+' Puedo aportar '+PCH.usd(s.m)+' al mes '+ruta+'.';
+});
+document.addEventListener('input',function(e){if(e.target.id==='qMsg')e.target.dataset.touched='1';});
+(function(){
+  var MODELS=[
+    {n:'Casa Ceiba',p:38000,d:'70 m² · 2 habitaciones · 1 baño'},
+    {n:'Casa Pino',p:52000,d:'100 m² · 3 habitaciones · 2 baños'},
+    {n:'Casa Caoba',p:72000,d:'140 m² · 4 habitaciones · 3 baños'}
+  ];
+  function usd(v){return '$'+Math.round(v).toLocaleString('en-US');}
+  function r100(v){return Math.round(v/100)*100;}
+  function row(a,b){return '<div><span>'+a+'</span><span>'+b+'</span></div>';}
+  function hipoteca(m){var r=0.10/12,n=240;var loan=m*(1-Math.pow(1+r,-n))/r;return {loan:loan,price:loan/0.85};}
+  window.PCH={models:MODELS,usd:usd,r100:r100,hipoteca:hipoteca};
+
+  /* Calculator */
+  var monto=document.getElementById('monto');
+  if(monto){
+    var $=function(id){return document.getElementById(id);};
+    var state={m:+monto.value,ruta:'hipoteca'};
+    function update(){
+      var m=+monto.value; state.m=m;
+      var ruta=document.querySelector('input[name=ruta]:checked').value; state.ruta=ruta;
+      $('montoTxt').textContent=usd(m);
+      var fit;
+      if(ruta==='hipoteca'){
+        var h=hipoteca(m);
+        $('bigNum').textContent=usd(r100(h.price));
+        $('bigLabel').textContent='Casa que puedes financiar';
+        $('lines').innerHTML=row('Crédito del banco',usd(r100(h.loan)))+row('Prima inicial (15%)',usd(r100(h.price*0.15)))+row('Cuota mensual',usd(m)+' × 240 meses');
+        $('rutaNota').textContent='El banco aliado financia la obra y te la entrega terminada. Pagas una prima al inicio y la cuota mensual durante 20 años.';
+        fit=MODELS.filter(function(x){return x.p<=h.price;}).pop();
+        state.result=usd(r100(h.price));
+      }else{
+        var target=MODELS.filter(function(x){return x.p/m<=72;}).pop()||MODELS[0];
+        var months=Math.ceil(target.p/m);
+        $('bigNum').textContent=months+' meses';
+        $('bigLabel').textContent='Para completar tu '+target.n;
+        $('lines').innerHTML=row('Precio cerrado',usd(target.p))+row('Aporte mensual',usd(m))+row('Intereses','$0');
+        $('rutaNota').textContent='Aportas una cuota fija a tu propio fideicomiso y la obra avanza fase por fase según el saldo. Sin préstamo y sin intereses.';
+        fit=target;
+        state.result=target.n+' en '+months+' meses';
+      }
+      var maxP=80000,val=ruta==='hipoteca'?hipoteca(m).price:fit.p;
+      if($('barFill'))$('barFill').style.width=Math.min(100,val/maxP*100)+'%';
+      if(fit){$('fitName').textContent=fit.n;$('fitDesc').textContent=fit.d;}
+      else{$('fitName').textContent='Casa Ceiba con prima mayor';$('fitDesc').textContent='Con una prima más alta alcanzas el modelo de 70 m².';}
+      window.PCH_LAST={monto:state.m,ruta:state.ruta,resultado:state.result};document.dispatchEvent(new CustomEvent('pch:calc',{detail:state}));
+    }
+    monto.addEventListener('input',update);
+    document.querySelectorAll('input[name=ruta]').forEach(function(el){el.addEventListener('change',update);});
+    document.querySelectorAll('[data-monto]').forEach(function(b){b.addEventListener('click',function(){monto.value=b.getAttribute('data-monto');update();});});
+    update();
+  }
+
+  /* Quick quote form */
+  document.querySelectorAll('form.qform').forEach(function(f){
+    f.addEventListener('submit',function(e){
+      e.preventDefault();
+      var name=f.querySelector('[name=nombre]'),mail=f.querySelector('[name=correo]'),err=f.querySelector('.qerr');
+      var msg='';
+      name.removeAttribute('aria-invalid');mail.removeAttribute('aria-invalid');
+      if(name.value.trim().split(/\s+/).length<2){msg='Escribe tu nombre y apellido.';name.setAttribute('aria-invalid','true');}
+      else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail.value.trim())){msg='Revisa tu correo electrónico, parece incompleto.';mail.setAttribute('aria-invalid','true');}
+      if(msg){err.textContent=msg;return;}
+      err.textContent='';
+      var first=name.value.trim().split(/\s+/)[0];
+      var ok=f.parentNode.querySelector('.qok'),btn=f.querySelector('[type=submit]');
+      var msgEl=f.querySelector('[name=mensaje]'),hp=f.querySelector('[name=web]');
+      btn.disabled=true;btn.style.opacity='.6';
+      fetch('/api/cotizar',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        nombre:name.value.trim(),correo:mail.value.trim(),mensaje:msgEl?msgEl.value.trim():'',
+        pagina:location.pathname.indexOf('calculadora')>=0?'calculadora':'inicio',calculo:window.PCH_LAST||null,web:hp?hp.value:''})})
+      .then(function(r){if(!r.ok)throw new Error(r.status);
+        ok.querySelector('b').textContent='Gracias, '+first+'.';
+        f.hidden=true;ok.hidden=false;})
+      .catch(function(){err.textContent='No pudimos enviar tu solicitud. Inténtalo de nuevo o escríbenos por WhatsApp al +504 3158-0149.';})
+      .then(function(){btn.disabled=false;btn.style.opacity='';});
+    });
+  });
+})();
+
+</script>
+</div></div>
+
+</body>
+</html>

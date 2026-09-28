@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://puente-constructora-hn.vercel.app/sitemap.xml
