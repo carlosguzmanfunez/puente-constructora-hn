@@ -4,13 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Calculadora de remesa · Puente Constructora Honduras</title>
-<meta name="description" content="Calcula qué casa en Honduras puedes construir con tu remesa mensual: hipoteca bancaria o cuota fija sin intereses.">
+<meta name="description" content="Calcula qué casa en Honduras puedes construir con tu remesa mensual: en cuántos meses la completas con una cuota fija, sin intereses.">
 <link rel="canonical" href="https://puente-constructora-hn.vercel.app/calculadora">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_HN">
 <meta property="og:site_name" content="Puente Constructora Honduras">
 <meta property="og:title" content="Calculadora de remesa · Puente Constructora Honduras">
-<meta property="og:description" content="Calcula qué casa en Honduras puedes construir con tu remesa mensual: hipoteca bancaria o cuota fija sin intereses.">
+<meta property="og:description" content="Calcula qué casa en Honduras puedes construir con tu remesa mensual: en cuántos meses la completas con una cuota fija, sin intereses.">
 <meta property="og:url" content="https://puente-constructora-hn.vercel.app/calculadora">
 <meta name="twitter:card" content="summary">
 <meta name="theme-color" content="#F3EFE9">
@@ -348,7 +348,7 @@ details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
 .page-head h1 span{font-style:italic;color:var(--terra)}
 .label{font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--terra)}
 .sec-head{display:grid;gap:18px;margin-bottom:48px}
-.compare{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.compare{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink)}
 .compare article{padding:36px 32px 0 0;display:grid;gap:12px;align-content:start}
 .compare article+article{padding-left:32px;border-left:1px solid var(--line)}
 .compare .tag{font-size:11.5px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--terra)}
@@ -400,13 +400,7 @@ footer .mock-note{border:0;padding:0;color:var(--muted)}
         <span class="flabel">Montos comunes</span>
         <div class="chips"><button type="button" data-monto="300">$300</button><button type="button" data-monto="500">$500</button><button type="button" data-monto="800">$800</button><button type="button" data-monto="1200">$1,200</button></div>
       </div>
-      <div class="field">
-        <span class="flabel">Cómo quiero pagar</span>
-        <div class="seg" role="radiogroup" aria-label="Forma de pago">
-          <input type="radio" name="ruta" id="rHipoteca" value="hipoteca" checked><label for="rHipoteca">Hipoteca bancaria</label>
-          <input type="radio" name="ruta" id="rCuota" value="cuota"><label for="rCuota">Construcción programada</label>
-        </div>
-      </div>
+      <input type="radio" name="ruta" id="rCuota" value="cuota" checked hidden>
       <p class="fine" id="rutaNota"></p>
     </div>
     <div class="calc-out" aria-live="polite">
@@ -420,18 +414,16 @@ footer .mock-note{border:0;padding:0;color:var(--muted)}
         <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 17 L18 6 L32 17" fill="none" stroke="var(--pine)" stroke-width="2.2"/><rect x="8" y="16" width="20" height="15" fill="none" stroke="var(--pine)" stroke-width="2.2"/></svg>
         <div><b id="fitName">Casa Pino</b><p id="fitDesc"></p></div>
       </div>
-      <p class="fine">Estimación ilustrativa, sin terreno. Supone tasa de 10% anual en dólares, prima de 15% y plazo de 20 años. La cifra real depende de la aprobación del banco.</p>
+      <p class="fine">Estimación ilustrativa, sin terreno y sin intereses. El plazo depende de tu aporte mensual.</p>
     </div>
   </div>
 
   <section>
     <div class="sec-head">
       <span class="label">Compara</span>
-      <h2>Tres formas de pagar <em>tu casa.</em></h2>
+      <h2>Dos formas de pagar <em>tu casa.</em></h2>
     </div>
     <div class="compare">
-      <article><span class="tag">Con banco</span><h3>Hipoteca bancaria</h3><p>El banco financia la obra y la recibes terminada.</p>
-        <dl><dt>Prima</dt><dd>10% a 20%</dd><dt>Plazo</dt><dd>hasta 20 años</dd><dt>Requisito</dt><dd>ingresos comprobables</dd></dl></article>
       <article><span class="tag">Con tus ahorros</span><h3>Pago por fases</h3><p>Depositas cada tramo antes de iniciar la fase.</p>
         <dl><dt>Intereses</dt><dd>$0</dd><dt>Fases</dt><dd>A tu ritmo</dd><dt>Retención</dt><dd>5% hasta la entrega</dd></dl></article>
       <article><span class="tag">Con tu remesa</span><h3>Cuota fija mensual</h3><p>La obra avanza según tu saldo en el fideicomiso.</p>

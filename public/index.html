@@ -211,7 +211,7 @@ input[type=range]{width:100%;accent-color:var(--terra);height:30px}
 .model .price small{font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:400}
 
 /* FINANCE */
-.fin{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.fin{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink)}
 .fin article{padding:40px 36px 0 0;display:grid;gap:14px;align-content:start}
 .fin article+article{padding-left:36px;border-left:1px solid var(--line)}
 .fin p{color:var(--muted);font-weight:300}
@@ -567,7 +567,7 @@ details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
 <section id="calculadora">
   <div class="calc-head">
     <div style="display:grid;gap:20px"><span class="eyebrow">Calculadora de remesa</span><h2>Con lo que envías al mes, <em>¿qué casa puedes tener?</em></h2></div>
-    <div style="display:grid;gap:22px;justify-items:start"><p class="lead">Mueve la barra y compara la hipoteca con la construcción programada.</p><a class="tlink" href="/calculadora" target="_blank" rel="noopener">Abrir en página aparte</a></div>
+    <div style="display:grid;gap:22px;justify-items:start"><p class="lead">Mueve la barra y mira en cuántos meses completas tu casa con una cuota fija.</p><a class="tlink" href="/calculadora" target="_blank" rel="noopener">Abrir en página aparte</a></div>
   </div>
 <div class="calc">
     <div class="calc-in">
@@ -581,13 +581,7 @@ details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
         <span class="flabel">Montos comunes</span>
         <div class="chips"><button type="button" data-monto="300">$300</button><button type="button" data-monto="500">$500</button><button type="button" data-monto="800">$800</button><button type="button" data-monto="1200">$1,200</button></div>
       </div>
-      <div class="field">
-        <span class="flabel">Cómo quiero pagar</span>
-        <div class="seg" role="radiogroup" aria-label="Forma de pago">
-          <input type="radio" name="ruta" id="rHipoteca" value="hipoteca" checked><label for="rHipoteca">Hipoteca bancaria</label>
-          <input type="radio" name="ruta" id="rCuota" value="cuota"><label for="rCuota">Construcción programada</label>
-        </div>
-      </div>
+      <input type="radio" name="ruta" id="rCuota" value="cuota" checked hidden>
       <p class="fine" id="rutaNota"></p>
     </div>
     <div class="calc-out" aria-live="polite">
@@ -601,7 +595,7 @@ details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
         <svg width="36" height="36" viewBox="0 0 36 36" aria-hidden="true"><path d="M4 17 L18 6 L32 17" fill="none" stroke="currentColor" stroke-width="2.2"/><rect x="8" y="16" width="20" height="15" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
         <div><b id="fitName">Casa Pino</b><p id="fitDesc"></p></div>
       </div>
-      <p class="fine">Estimación ilustrativa, sin terreno. Supone tasa de 10% anual en dólares, prima de 15% y plazo de 20 años. La cifra real depende de la aprobación del banco.</p>
+      <p class="fine">Estimación ilustrativa, sin terreno y sin intereses. El plazo depende de tu aporte mensual.</p>
     </div>
   </div>
 
@@ -682,11 +676,10 @@ details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
 <!-- FINANCE -->
 <section id="financiamiento">
   <div class="sol-head">
-    <div style="display:grid;gap:20px"><span class="eyebrow">Financiamiento</span><h2>Tres formas de pagar. <em>Tú eliges.</em></h2></div>
-    <p class="lead">Con banco, con tus ahorros o con tu remesa mensual. Todas pasan por el fideicomiso.</p>
+    <div style="display:grid;gap:20px"><span class="eyebrow">Financiamiento</span><h2>Dos formas de pagar. <em>Tú eliges.</em></h2></div>
+    <p class="lead">Con tus ahorros o con tu remesa mensual. Ambas pasan por el fideicomiso.</p>
   </div>
   <div class="fin">
-    <article><span class="eyebrow">Con banco</span><h3>Hipoteca bancaria</h3><p>Un banco aliado financia la construcción y la convierte en hipoteca al terminar.</p><ul><li>Prima desde 10% a 20%</li><li>Plazos de hasta 20 años</li><li>Precalificación sin compromiso</li></ul></article>
     <article><span class="eyebrow">Con tus ahorros</span><h3>Pago por fases</h3><p>Precio cerrado por fase. Avanzas hasta donde alcance tu presupuesto y continúas cuando quieras; cada tramo se deposita al fideicomiso antes de iniciar la fase.</p><ul><li>Sin intereses ni deuda</li><li>5% retenido hasta que recibes conforme</li><li>Ideal con ahorros o reembolso de impuestos</li></ul></article>
     <article><span class="eyebrow">Con tu remesa</span><h3>Cuota fija mensual</h3><p>Aportas lo mismo cada mes a tu propio fideicomiso y la obra avanza fase por fase según el saldo.</p><ul><li>Desde $300 al mes</li><li>Sin préstamo ni buró de crédito</li><li>Terreno también a plazos</li></ul></article>
   </div>
@@ -718,7 +711,6 @@ details p{padding:0 0 26px;color:var(--muted);max-width:62ch;font-weight:300}
       <details open><summary>¿Tengo que viajar a Honduras para firmar?</summary><p>No. Firmas el contrato de forma electrónica y, para trámites del terreno, otorgas un poder especial en el consulado hondureño más cercano. Te guiamos paso a paso.</p></details>
       <details><summary>¿En qué ciudades construyen?</summary><p>En la ciudad o municipio que tú elijas. Antes de firmar hacemos una visita técnica al terreno y revisamos acceso, agua y luz.</p></details>
       <details><summary>¿Qué pasa si la obra se atrasa?</summary><p>El contrato tiene cronograma y penalidad por atraso. Además, el banco solo libera dinero cuando el supervisor certifica avance, así que nunca pagas por trabajo que no se ha hecho.</p></details>
-      <details><summary>¿Qué necesito para la hipoteca?</summary><p>El banco pide ingresos comprobables, como talones de pago o declaraciones de impuestos con SSN o ITIN. Si no calificas, la cuota fija mensual no requiere préstamo.</p></details>
       <details><summary>¿Y si todavía no tengo terreno?</summary><p>Te mostramos terrenos con expediente legal verificado en la zona que prefieras, y el terreno también se puede pagar a plazos.</p></details>
     </div>
   </div>
